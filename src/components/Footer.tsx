@@ -8,6 +8,16 @@ export default function Footer() {
   const [submitting, setSubmitting] = useState(false);
   const { lang, t } = useLanguage();
 
+  // ISI LINK SOSIAL MEDIA ANDA DI SINI
+  // Silakan ganti nilai 'username' atau nomor telepon di bawah sesuai akun Anda:
+  const socialLinks = {
+    linkedin: 'https://www.linkedin.com/in/rofiq-maulana-44ab30205/',
+    behance: 'https://www.behance.net/angkasa___studio',
+    dribbble: 'https://dribbble.com/Angkasa_Studio',
+    instagram: 'https://instagram.com/angkasa___studio',
+    whatsapp: 'https://wa.me/6287820299410', // Format WhatsApp internasional tanpa tanda '+' atau spasi (misal 62 untuk Indonesia)
+  };
+
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes('@')) return;
@@ -61,15 +71,23 @@ export default function Footer() {
               {t('footer', 'bio')}
             </p>
 
-            <div className="flex gap-3">
-              {['Instagram', 'Behance', 'Dribbble', 'LinkedIn'].map((platform) => (
+            <div className="flex flex-wrap gap-2.5">
+              {[
+                { name: 'LinkedIn', key: 'linkedin', label: 'ln' },
+                { name: 'Behance', key: 'behance', label: 'be' },
+                { name: 'Dribbble', key: 'dribbble', label: 'dr' },
+                { name: 'Instagram', key: 'instagram', label: 'ig' },
+                { name: 'WhatsApp', key: 'whatsapp', label: 'wa' },
+              ].map((platform) => (
                 <a
-                  key={platform}
-                  href="#"
+                  key={platform.key}
+                  href={socialLinks[platform.key as keyof typeof socialLinks]}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full border border-white/5 bg-space-2/30 hover:border-cosmic-blue/30 text-star-dim hover:text-cosmic-blue flex items-center justify-center transition-all duration-200 text-xs font-mono font-bold cursor-none"
-                  aria-label={platform}
+                  aria-label={platform.name}
                 >
-                  {platform.substring(0, 2).toLowerCase()}
+                  {platform.label}
                 </a>
               ))}
             </div>
