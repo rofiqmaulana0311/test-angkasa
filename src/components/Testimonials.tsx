@@ -1,55 +1,59 @@
 import React from 'react';
 import { Testimonial } from '../types';
 import { motion } from 'motion/react';
+import { useLanguage } from '../LanguageContext';
 
 export default function Testimonials() {
+  const { lang, t } = useLanguage();
+
+  const translatorItems = t('testimonials', 'items');
   const testimonials: Testimonial[] = [
     {
       id: 't1',
       stars: 5,
-      quote: 'Angkasa Studio benar-benar mengubah cara kami dipersepsikan di pasar. Brand identity kami sekarang terasa premium, konsisten, dan benar-benar merepresentasikan visi produk kami.',
-      author: 'Rizky Dharma',
-      role: 'CEO, Nexus Capital',
+      quote: translatorItems[0]?.quote || 'Angkasa Studio benar-benar mengubah cara kami dipersepsikan di pasar. Brand identity kami sekarang terasa premium, konsisten, dan benar-benar merepresentasikan visi produk kami.',
+      author: translatorItems[0]?.author || 'Rizky Dharma',
+      role: translatorItems[0]?.role || 'CEO, Nexus Capital',
       avatarText: 'RD',
     },
     {
       id: 't2',
       stars: 5,
-      quote: 'Proses kerjanya terstruktur banget. Dari discovery sampai delivery, tim Angkasa selalu satu langkah lebih depan dari apa yang kami bayangkan.',
-      author: 'Siti Aminah',
-      role: 'Founder, Luminar',
+      quote: translatorItems[1]?.quote || 'Proses kerjanya terstruktur banget. Dari discovery sampai delivery, tim Angkasa selalu satu langkah lebih depan dari apa yang kami bayangkan.',
+      author: translatorItems[1]?.author || 'Siti Aminah',
+      role: translatorItems[1]?.role || 'Founder, Luminar',
       avatarText: 'SA',
     },
     {
       id: 't3',
       stars: 5,
-      quote: 'Design system yang mereka buat menghemat waktu tim kami puluhan jam setiap sprint. Ini bukan sekadar desain — ini adalah infrastruktur brand yang sebenarnya.',
-      author: 'Michael Faiz',
-      role: 'CTO, Vault Protocol',
+      quote: translatorItems[2]?.quote || 'Design system yang mereka buat menghemat waktu tim kami puluhan jam setiap sprint. Ini bukan sekadar desain — ini adalah infrastruktur brand yang sebenarnya.',
+      author: translatorItems[2]?.author || 'Michael Faiz',
+      role: translatorItems[2]?.role || 'CTO, Vault Protocol',
       avatarText: 'MF',
     },
     {
       id: 't4',
       stars: 5,
-      quote: 'Kami mendapatkan 3 investor baru setelah pitch deck redesign oleh Angkasa. Visualnya so clean dan storytelling-nya kuat banget. Worth every rupiah.',
-      author: 'Laila Kusuma',
-      role: 'Co-Founder, Kosmik Market',
+      quote: translatorItems[3]?.quote || 'Kami mendapatkan 3 investor baru setelah pitch deck redesign oleh Angkasa. Visualnya so clean dan storytelling-nya kuat banget. Worth every rupiah.',
+      author: translatorItems[3]?.author || 'Laila Kusuma',
+      role: translatorItems[3]?.role || 'Co-Founder, Kosmik Market',
       avatarText: 'LK',
     },
     {
       id: 't5',
       stars: 5,
-      quote: 'Rebrand kami dari Angkasa menghasilkan peningkatan 40% di user trust score dan 28% lebih tinggi NPS dalam 3 bulan. Hasilnya lebih dari kami harapkan.',
-      author: 'Bagas Pratama',
-      role: 'Head of Product, Strata Living',
+      quote: translatorItems[4]?.quote || 'Rebrand kami dari Angkasa menghasilkan peningkatan 40% di user trust score dan 28% lebih tinggi NPS dalam 3 bulan. Hasilnya lebih dari kami harapkan.',
+      author: translatorItems[4]?.author || 'Bagas Pratama',
+      role: translatorItems[4]?.role || 'Head of Product, Strata Living',
       avatarText: 'BP',
     },
     {
       id: 't6',
       stars: 5,
-      quote: 'Yang paling membuat saya berkesan adalah bagaimana mereka menerjemahkan produk fintech kami yang rumit menjadi bahasa visual yang terasa ramah, modern, dan tepercaya. Pekerjaan yang luar biasa!',
-      author: 'Arif Nugroho',
-      role: 'CMO, Bintara Finance',
+      quote: translatorItems[5]?.quote || 'Yang paling membuat saya berkesan adalah bagaimana mereka menerjemahkan produk fintech kami yang rumit menjadi bahasa visual yang terasa ramah, modern, dan tepercaya. Pekerjaan yang luar biasa!',
+      author: translatorItems[5]?.author || 'Arif Nugroho',
+      role: translatorItems[5]?.role || 'CMO, Bintara Finance',
       avatarText: 'AN',
     },
   ];
@@ -70,13 +74,13 @@ export default function Testimonials() {
       <div className="max-w-4xl mx-auto text-center px-6 mb-16">
         <div className="inline-flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-widest text-cosmic-blue justify-center">
           <span className="w-6 h-0.5 bg-cosmic-blue block" />
-          Suara Klien
+          {t('testimonials', 'badge')}
         </div>
         <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
-          Kesan Mereka yang Telah Mengudara
+          {t('testimonials', 'title')}
         </h2>
         <p className="text-star-dim font-light text-sm sm:text-base max-w-lg mx-auto">
-          Klien berbicara lebih keras dari portofolio kami.
+          {t('testimonials', 'desc')}
         </p>
       </div>
 

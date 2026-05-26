@@ -2,9 +2,11 @@ import React, { useState, useRef } from 'react';
 import { PortfolioItem } from '../types';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useLanguage } from '../LanguageContext';
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'logo' | 'identity' | 'collateral' | 'motion'>('all');
+  const { lang, t } = useLanguage();
   
   // Custom tilt state map to handle independent card 3D rotational perspective
   const [tiltStyles, setTiltStyles] = useState<Record<string, React.CSSProperties>>({});
@@ -12,8 +14,8 @@ export default function Portfolio() {
   const portfolioItems: PortfolioItem[] = [
     {
       id: 'nexus-capital',
-      client: 'Fintech · Logo Design',
-      title: 'Nexus Geometric Star Symbol',
+      client: t('portfolio', 'items')['nexus-capital']?.client || 'Fintech · Logo Design',
+      title: t('portfolio', 'items')['nexus-capital']?.title || 'Nexus Geometric Star Symbol',
       category: 'logo',
       themeClass: 'bg-gradient-to-br from-[#0A1628] via-[#0F2850] to-[#0C3878]',
       mockupType: 'nexus',
@@ -22,8 +24,8 @@ export default function Portfolio() {
     },
     {
       id: 'luminar-dashboard',
-      client: 'SaaS · Logo Motion',
-      title: 'Luminar Kinetic Moving Mark',
+      client: t('portfolio', 'items')['luminar-dashboard']?.client || 'SaaS · Logo Motion',
+      title: t('portfolio', 'items')['luminar-dashboard']?.title || 'Luminar Kinetic Moving Mark',
       category: 'motion',
       themeClass: 'bg-gradient-to-br from-[#0D1F3C] via-[#0A152B] to-[#091427]',
       mockupType: 'luminar',
@@ -32,8 +34,8 @@ export default function Portfolio() {
     },
     {
       id: 'vault-protocol',
-      client: 'Web3 · Collateral & Print',
-      title: 'Vault Stationery & Packaging Set',
+      client: t('portfolio', 'items')['vault-protocol']?.client || 'Web3 · Collateral & Print',
+      title: t('portfolio', 'items')['vault-protocol']?.title || 'Vault Stationery & Packaging Set',
       category: 'collateral',
       themeClass: 'bg-gradient-to-br from-[#040D1F] via-[#081730] to-[#0A2040]',
       mockupType: 'vault',
@@ -42,8 +44,8 @@ export default function Portfolio() {
     },
     {
       id: 'kosmik-market',
-      client: 'E-Commerce · Custom Lettering',
-      title: 'Kosmik Custom Lettering Logotype',
+      client: t('portfolio', 'items')['kosmik-market']?.client || 'E-Commerce · Custom Lettering',
+      title: t('portfolio', 'items')['kosmik-market']?.title || 'Kosmik Custom Lettering Logotype',
       category: 'logo',
       themeClass: 'bg-gradient-to-br from-[#060F25] via-[#0F2040] to-[#142850]',
       mockupType: 'kosmik',
@@ -52,8 +54,8 @@ export default function Portfolio() {
     },
     {
       id: 'strata-living',
-      client: 'PropTech · Visual Identity',
-      title: 'Strata Living Guidelines Book',
+      client: t('portfolio', 'items')['strata-living']?.client || 'PropTech · Visual Identity',
+      title: t('portfolio', 'items')['strata-living']?.title || 'Strata Living Guidelines Book',
       category: 'identity',
       themeClass: 'bg-gradient-to-br from-[#020814] via-[#0A1830] to-[#05101E]',
       mockupType: 'strata',
@@ -183,21 +185,21 @@ export default function Portfolio() {
           <div>
             <div className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-widest text-cosmic-blue">
               <span className="w-6 h-0.5 bg-cosmic-blue block" />
-              Karya Pilihan
+              {t('portfolio', 'selectedWork')}
             </div>
             <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-2 leading-tight">
-              Brand yang Telah <br /> Kami Orbitkan
+              {t('portfolio', 'title')}
             </h2>
           </div>
 
           {/* Interactive Filters Option Row */}
           <div className="flex flex-wrap gap-2 text-xs uppercase tracking-widest font-mono">
             {[
-              { id: 'all', label: 'Semua Karya' },
-              { id: 'logo', label: 'Desain Logo' },
-              { id: 'identity', label: 'Identitas Visual' },
-              { id: 'collateral', label: 'Materi Cetak' },
-              { id: 'motion', label: 'Animasi Logo' }
+              { id: 'all', label: t('portfolio', 'filters')['all'] },
+              { id: 'logo', label: t('portfolio', 'filters')['logo'] },
+              { id: 'identity', label: t('portfolio', 'filters')['identity'] },
+              { id: 'collateral', label: t('portfolio', 'filters')['collateral'] },
+              { id: 'motion', label: t('portfolio', 'filters')['motion'] }
             ].map((cat) => (
               <button
                 key={cat.id}

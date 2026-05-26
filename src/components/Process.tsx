@@ -1,35 +1,38 @@
 import React, { useState } from 'react';
 import { ProcessStep } from '../types';
 import { motion } from 'motion/react';
+import { useLanguage } from '../LanguageContext';
 
 export default function Process() {
   const [activeStep, setActiveStep] = useState<number>(0);
+  const { lang, t } = useLanguage();
 
+  const translatorSteps = t('process', 'steps');
   const stepsList: ProcessStep[] = [
     {
       num: '01',
-      title: 'Sesi Perkenalan & Riset',
-      description: 'Deep-dive ke bisnis, kompetitor, audiens, dan aspirasi brand. Kami tidak mulai desain sebelum kami benar-benar memahami orbit Anda.',
+      title: translatorSteps[0]?.title || 'Discovery & Immersion',
+      description: translatorSteps[0]?.description || '',
     },
     {
       num: '02',
-      title: 'Strategi & Arah Kreatif',
-      description: 'Brand positioning, mood board, dan creative direction yang disepakati bersama. Ini adalah peta bintang sebelum peluncuran.',
+      title: translatorSteps[1]?.title || 'Strategy & Direction',
+      description: translatorSteps[1]?.description || '',
     },
     {
       num: '03',
-      title: 'Mulai Desain & Revisi',
-      description: 'Iterasi desain dengan presentasi yang transparan dan feedback loop yang efisien. Setiap revisi punya tujuan, bukan tebakan.',
+      title: translatorSteps[2]?.title || 'Design & Refinement',
+      description: translatorSteps[2]?.description || '',
     },
     {
       num: '04',
-      title: 'Peluncuran & Penyerahan',
-      description: 'Handover aset lengkap, brand guidelines, dan briefing implementasi. Kami pastikan brand Anda siap terbang di semua platform.',
+      title: translatorSteps[3]?.title || 'Delivery & Activation',
+      description: translatorSteps[3]?.description || '',
     },
     {
       num: '05',
-      title: 'Dukungan Berkelanjutan',
-      description: 'Post-launch partnership untuk menjaga konsistensi brand seiring bisnis Anda berkembang. Kami mitra jangka panjang, bukan vendor satu proyek.',
+      title: translatorSteps[4]?.title || 'Orbit Support',
+      description: translatorSteps[4]?.description || '',
     },
   ];
 
@@ -48,13 +51,13 @@ export default function Process() {
           <div>
             <div className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-widest text-cosmic-blue">
               <span className="w-6 h-0.5 bg-cosmic-blue block" />
-              Metode Kerja Kami
+              {t('process', 'badge')}
             </div>
             <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-              Sistem Orbit <br /> Angkasa Studio
+              {t('process', 'titlePart1')} <br /> {t('process', 'titlePart2')}
             </h2>
             <p className="text-star-dim font-light text-sm sm:text-base mb-10 leading-relaxed">
-              Setiap proyek melewati sistem yang telah kami rancang untuk menghasilkan output konsisten, terukur, dan bernilai tinggi.
+              {t('process', 'desc')}
             </p>
 
             <div className="flex flex-col">

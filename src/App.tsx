@@ -15,29 +15,32 @@ import Process from './components/Process';
 import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { LanguageProvider } from './LanguageContext';
 
 export default function App() {
   return (
-    <div className="relative min-h-screen bg-deep-space select-none text-white selection:bg-cosmic-blue/30 selection:text-white antialiased">
-      {/* Premium custom interactive elements */}
-      <CustomCursor />
-      <StarCanvas />
+    <LanguageProvider>
+      <div className="relative min-h-screen bg-deep-space select-none text-white selection:bg-cosmic-blue/30 selection:text-white antialiased">
+        {/* Premium custom interactive elements */}
+        <CustomCursor />
+        <StarCanvas />
 
-      {/* Main Structural Blocks */}
-      <Navbar />
-      
-      <main className="relative z-10">
-        <Hero />
-        <Services />
-        <Portfolio />
-        <Testimonials />
-        <Process />
-        <Pricing />
-        <Contact />
-      </main>
+        {/* Main Structural Blocks */}
+        <Navbar />
+        
+        <main className="relative z-10">
+          <Hero />
+          <Services />
+          <Portfolio />
+          <Testimonials />
+          <Process />
+          <Pricing />
+          <Contact />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 }
 

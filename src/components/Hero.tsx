@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { ArrowRight, Sparkles, MoveRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useLanguage } from '../LanguageContext';
 
 export default function Hero() {
   const [stats, setStats] = useState({ launched: 0, years: 0.0, rate: 0.0, score: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
   const [glowPos, setGlowPos] = useState({ x: 50, y: 55 });
+  const { lang, t } = useLanguage();
 
   useEffect(() => {
     // Animate stats counter
@@ -80,19 +82,19 @@ export default function Hero() {
         {/* Decorative Badge - Selected Focus Element */}
         <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-cosmic-blue/30 bg-gradient-to-r from-space-2/80 to-space-3/80 shadow-[0_0_15px_rgba(59,130,246,0.1)] backdrop-blur-md text-xs font-semibold uppercase tracking-widest text-cosmic-blue hover:text-white hover:border-cosmic-cyan/50 hover:shadow-[0_0_20px_rgba(6,182,212,0.2)] transition-all duration-300 scale-95 md:scale-100 select-none cursor-default">
           <span className="w-1.5 h-1.5 bg-cosmic-blue rounded-full animate-pulse shadow-[0_0_8px_#3B82F6]" />
-          Brand & Design Studio
+          {t('hero', 'badge')}
         </div>
 
         {/* Display Heading */}
-        <h1 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.05] mb-6 max-w-4xl text-white select-none">
-          Identitas Visual yang <br />
-          Siap Membawa Brand Anda <br />
-          <span className="font-extrabold bg-gradient-to-r from-blue-400 via-cosmic-blue to-cosmic-cyan bg-clip-text text-transparent">Lebih Jauh</span>
+        <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-[1.1] mb-6 max-w-5xl text-white select-none text-center">
+          {t('hero', 'titlePart1')} <br />
+          {t('hero', 'titlePart2')} <br />
+          <span className="font-extrabold bg-gradient-to-r from-blue-400 via-cosmic-blue to-cosmic-cyan bg-clip-text text-transparent w-full inline-block sm:inline">{t('hero', 'gradient')}</span>
         </h1>
 
         {/* Subtext */}
         <p className="text-sm sm:text-base md:text-lg text-star-dim font-light max-w-2xl leading-relaxed mb-10 select-none">
-          Identitas visual premium untuk startup dan bisnis ambisius yang siap meninggalkan kesan tak terlupakan di orbit pasar mereka.
+          {t('hero', 'subtext')}
         </p>
 
         {/* Button Actions */}
@@ -101,14 +103,14 @@ export default function Hero() {
             href="#portfolio"
             className="group inline-flex items-center gap-2 w-full sm:w-auto justify-center px-8 py-4 rounded-full bg-cosmic-blue hover:bg-blue-600 transition-all duration-300 transform hover:-translate-y-0.5 text-sm font-semibold tracking-wide text-white shadow-lg shadow-cosmic-blue/20 hover:shadow-cosmic-blue/40"
           >
-            Lihat Karya Kami
+            {t('hero', 'viewWork')}
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
           <a
             href="#services"
             className="group inline-flex items-center gap-2 w-full sm:w-auto justify-center px-8 py-4 rounded-full bg-transparent hover:text-white transition-all text-sm font-medium tracking-wide text-star-dim"
           >
-            Pelajari Layanan
+            {t('hero', 'learnServices')}
             <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
@@ -120,15 +122,15 @@ export default function Hero() {
               {stats.launched}+
             </span>
             <span className="text-[9px] sm:text-[10px] text-star-muted uppercase tracking-widest font-mono">
-              Brand Diluncurkan
+              {t('hero', 'brandsLaunched')}
             </span>
           </div>
           <div className="text-center">
             <span className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-white block mb-1">
-              {stats.years} Thn
+              {stats.years} {t('hero', 'years')}
             </span>
             <span className="text-[9px] sm:text-[10px] text-star-muted uppercase tracking-widest font-mono">
-              Mengudara
+              {t('hero', 'inOrbit')}
             </span>
           </div>
           <div className="text-center">
@@ -136,7 +138,7 @@ export default function Hero() {
               {stats.score}
             </span>
             <span className="text-[9px] sm:text-[10px] text-star-muted uppercase tracking-widest font-mono">
-              Skor Kepuasan
+              {t('hero', 'satisfaction')}
             </span>
           </div>
           <div className="text-center">
@@ -144,7 +146,7 @@ export default function Hero() {
               {stats.rate}
             </span>
             <span className="text-[9px] sm:text-[10px] text-star-muted uppercase tracking-widest font-mono">
-              Rating Klien
+              {t('hero', 'clientRating')}
             </span>
           </div>
         </div>
@@ -156,7 +158,7 @@ export default function Hero() {
         className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 group transition-colors hover:text-white text-star-dim select-none"
       >
         <span className="text-[9px] uppercase tracking-widest leading-none text-star-muted group-hover:text-white font-mono">
-          Gulir ke Bawah
+          {t('hero', 'scrollDown')}
         </span>
         <div className="w-0.5 h-12 bg-gradient-to-b from-cosmic-blue to-transparent rounded-full overflow-hidden relative">
           <div className="absolute top-0 left-0 right-0 h-4 bg-white rounded-full scroll-line-anim" />

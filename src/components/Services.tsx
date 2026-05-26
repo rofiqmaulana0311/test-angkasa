@@ -2,35 +2,38 @@ import React from 'react';
 import { Layers, Monitor, Target, Cpu, FileText, Film } from 'lucide-react';
 import { Service } from '../types';
 import { motion } from 'motion/react';
+import { useLanguage } from '../LanguageContext';
 
 export default function Services() {
+  const { lang, t } = useLanguage();
+
   const serviceList: Service[] = [
     {
       id: 'logo-design',
-      title: 'Logo Design & Wordmarks',
-      description: 'Kreasi logo mark, kustom wordmark, monogram, dan letterform unik yang berkarakter kuat dan siap menjadi jangkar identitas bisnis Anda.',
-      tags: ['Custom Logo', 'Wordmark', 'Monogram'],
+      title: t('services', 'items')['logo-design']?.title || 'Logo Design & Wordmarks',
+      description: t('services', 'items')['logo-design']?.description || '',
+      tags: t('services', 'items')['logo-design']?.tags || ['Custom Logo', 'Wordmark', 'Monogram'],
       icon: 'Target',
     },
     {
       id: 'visual-identity',
-      title: 'Visual Identity Systems',
-      description: 'Sistem identitas visual terpadu mulai dari skema warna, panduan tipografi, aset ikonografi, hingga manual buku panduan penggunaan lengkap.',
-      tags: ['Brand Book', 'Color System', 'Typography'],
+      title: t('services', 'items')['visual-identity']?.title || 'Visual Identity Systems',
+      description: t('services', 'items')['visual-identity']?.description || '',
+      tags: t('services', 'items')['visual-identity']?.tags || ['Brand Book', 'Color System', 'Typography'],
       icon: 'Layers',
     },
     {
       id: 'brand-collateral',
-      title: 'Brand Collateral & Print',
-      description: 'Aset fisik & digital premium seperti desain kemasan (packaging), pitch deck, profil perusahaan, stationery, dan dokumen cetak resmi.',
-      tags: ['Packaging', 'Stationery', 'Pitch Decks'],
+      title: t('services', 'items')['brand-collateral']?.title || 'Brand Collateral & Print',
+      description: t('services', 'items')['brand-collateral']?.description || '',
+      tags: t('services', 'items')['brand-collateral']?.tags || ['Packaging', 'Stationery', 'Pitch Decks'],
       icon: 'FileText',
     },
     {
       id: 'logo-motion',
-      title: 'Logo Motion & Animation',
-      description: 'Logo animasi, bumper intro berkualitas tinggi, motion graphics media sosial, dan pedoman animasi logo interaktif (Lottie & SVG).',
-      tags: ['Animation', 'Lottie / SVG', 'Bumper Intro'],
+      title: t('services', 'items')['logo-motion']?.title || 'Logo Motion & Animation',
+      description: t('services', 'items')['logo-motion']?.description || '',
+      tags: t('services', 'items')['logo-motion']?.tags || ['Animation', 'Lottie / SVG', 'Bumper Intro'],
       icon: 'Film',
     },
   ];
@@ -69,13 +72,13 @@ export default function Services() {
         <div className="max-w-3xl mb-16">
           <div className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-widest text-cosmic-blue">
             <span className="w-6 h-0.5 bg-cosmic-blue block" />
-            Keahlian Kami
+            {t('services', 'expertise')}
           </div>
           <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-            Segala Kebutuhan untuk <br /> Melesatkan Brand Anda
+            {t('services', 'title')}
           </h2>
           <p className="text-star-dim font-light text-base sm:text-lg leading-relaxed max-w-xl">
-            Dari logo ikonik, sistem identitas visual yang solid, materi cetak premium, hingga animasi gerakan logo dinamis — kami desain dengan presisi mutlak.
+            {t('services', 'desc')}
           </p>
         </div>
 

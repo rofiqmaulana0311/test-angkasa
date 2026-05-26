@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Send, CheckCircle2, RefreshCw } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useLanguage } from '../LanguageContext';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ export default function Contact() {
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const { lang, t } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,10 +58,12 @@ export default function Contact() {
             <div className="py-12 flex flex-col items-center justify-center animate-pulse">
               <CheckCircle2 className="w-16 h-16 text-cosmic-cyan mb-6" />
               <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white mb-2 tracking-tight">
-                Sukses Mengorbit! ✓
+                {t('contact', 'successTitle')}
               </h3>
               <p className="text-star-dim font-light text-sm sm:text-base max-w-md leading-relaxed mb-8">
-                Terima kasih, <strong>{formData.name}</strong>. Proposal proyek Anda berhasil didaftarkan di sistem kami. Tim Angkasa Studio akan menghubungi Anda dalam 24 jam ke WhatsApp <strong>{formData.whatsapp}</strong>.
+                {t('contact', 'successText')
+                  .replace('{name}', formData.name)
+                  .replace('{whatsapp}', formData.whatsapp)}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-4">
@@ -67,31 +71,31 @@ export default function Contact() {
                   href={`https://wa.me/6281234567890?text=Halo%20Angkasa%20Studio%2C%20saya%20${encodeURIComponent(formData.name)}%20ingin%20berdiskusi%20mengenai%20projek%20${encodeURIComponent(formData.service)}.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-green-500 hover:bg-green-600 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-green-500/20 transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-green-500 hover:bg-green-600 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-green-500/20 transition-all duration-200 cursor-none"
                 >
-                  Hubungi Instan via WhatsApp
+                  {t('contact', 'contactWa')}
                 </a>
                 
                 <button
                   onClick={handleReset}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/10 hover:border-cosmic-blue/30 text-xs font-semibold uppercase tracking-wider text-star-dim hover:text-white transition-colors duration-200"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/10 hover:border-cosmic-blue/30 text-xs font-semibold uppercase tracking-wider text-star-dim hover:text-white transition-colors duration-200 cursor-none"
                 >
                   <RefreshCw className="w-3.5 h-3.5" />
-                  Kirim Pembahasan Baru
+                  {t('contact', 'newProposal')}
                 </button>
               </div>
             </div>
           ) : (
             /* Proposal Configurator Form */
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-cosmic-blue block mb-4">
-                Siap Lepas Landas?
+              <span className="text-[10px] font-bold uppercase tracking-widest text-cosmic-blue block mb-4 font-mono">
+                {t('contact', 'badge')}
               </span>
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-none">
-                Saatnya Brand Anda <br /> Mengangkasa Lebih Tinggi
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-none select-none">
+                {t('contact', 'title')}
               </h2>
-              <p className="text-star-dim font-light text-sm sm:text-base max-w-md mx-auto leading-relaxed mb-10">
-                Bergabunglah dengan 87+ brand yang telah mempercayakan identitas visual mereka kepada kami. Slot tersedia terbatas setiap kuartal.
+              <p className="text-star-dim font-light text-sm sm:text-base max-w-md mx-auto leading-relaxed mb-10 select-none">
+                {t('contact', 'desc')}
               </p>
 
               <form onSubmit={handleSubmit} className="text-left max-w-2xl mx-auto flex flex-col gap-6">
@@ -100,30 +104,30 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Name field */}
                   <div>
-                    <label className="block text-xs uppercase tracking-widest text-star-muted font-bold mb-2 font-mono">
-                      Nama Lengkap *
+                    <label className="block text-xs uppercase tracking-widest text-star-muted font-bold mb-2 font-mono select-none">
+                      {t('contact', 'formLabels')['name']}
                     </label>
                     <input
                       required
                       type="text"
-                      placeholder="e.g. Rizky Dharma"
+                      placeholder={t('contact', 'formPlaceholders')['name']}
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-space-1 border border-white/5 rounded-xl px-4 py-3.5 text-sm text-white outline-none focus:border-cosmic-blue transition-colors placeholder-star-muted"
+                      className="w-full bg-space-1 border border-white/5 rounded-xl px-4 py-3.5 text-sm text-white outline-none focus:border-cosmic-blue transition-colors placeholder-star-muted cursor-none"
                     />
                   </div>
                   {/* WhatsApp field */}
                   <div>
-                    <label className="block text-xs uppercase tracking-widest text-star-muted font-bold mb-2 font-mono">
-                      Nomor WhatsApp *
+                    <label className="block text-xs uppercase tracking-widest text-star-muted font-bold mb-2 font-mono select-none">
+                      {t('contact', 'formLabels')['whatsapp']}
                     </label>
                     <input
                       required
                       type="tel"
-                      placeholder="e.g. 081234567890"
+                      placeholder={t('contact', 'formPlaceholders')['whatsapp']}
                       value={formData.whatsapp}
                       onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
-                      className="w-full bg-space-1 border border-white/5 rounded-xl px-4 py-3.5 text-sm text-white outline-none focus:border-cosmic-blue transition-colors placeholder-star-muted"
+                      className="w-full bg-space-1 border border-white/5 rounded-xl px-4 py-3.5 text-sm text-white outline-none focus:border-cosmic-blue transition-colors placeholder-star-muted cursor-none"
                     />
                   </div>
                 </div>
@@ -132,51 +136,51 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Required Service selection list */}
                   <div>
-                    <label className="block text-xs uppercase tracking-widest text-star-muted font-bold mb-2 font-mono">
-                      Kebutuhan Desain / Servis
+                    <label className="block text-xs uppercase tracking-widest text-star-muted font-bold mb-2 font-mono select-none">
+                      {t('contact', 'formLabels')['needs']}
                     </label>
                     <select
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full bg-space-1 border border-white/5 rounded-xl px-4 py-3.5 text-sm text-white outline-none focus:border-cosmic-blue transition-colors appearance-none cursor-pointer"
+                      className="w-full bg-space-1 border border-white/5 rounded-xl px-4 py-3.5 text-sm text-white outline-none focus:border-cosmic-blue transition-colors appearance-none cursor-none"
                     >
-                      <option value="logo-design">Logo Design & Wordmarks (Logo Designer)</option>
-                      <option value="visual-identity">Visual Identity System (Visual Identity Designer)</option>
-                      <option value="brand-collateral">Brand Collateral & Print (Packaging, Stationery)</option>
-                      <option value="logo-motion">Logo Motion & Animation (Animated Logo)</option>
-                      <option value="custom">Paket Kustom Integrasi (Comprehensive Suite)</option>
+                      <option value="logo-design">{t('contact', 'formServices')['logo-design']}</option>
+                      <option value="visual-identity">{t('contact', 'formServices')['visual-identity']}</option>
+                      <option value="brand-collateral">{t('contact', 'formServices')['brand-collateral']}</option>
+                      <option value="logo-motion">{t('contact', 'formServices')['logo-motion']}</option>
+                      <option value="custom">{t('contact', 'formServices')['custom']}</option>
                     </select>
                   </div>
 
                   {/* Pricing Tier selection list */}
                   <div>
-                    <label className="block text-xs uppercase tracking-widest text-star-muted font-bold mb-2 font-mono">
-                      Rencana Budget Alokasi
+                    <label className="block text-xs uppercase tracking-widest text-star-muted font-bold mb-2 font-mono select-none">
+                      {t('contact', 'formLabels')['budget']}
                     </label>
                     <select
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      className="w-full bg-space-1 border border-white/5 rounded-xl px-4 py-3.5 text-sm text-white outline-none focus:border-cosmic-blue transition-colors appearance-none cursor-pointer"
+                      className="w-full bg-space-1 border border-white/5 rounded-xl px-4 py-3.5 text-sm text-white outline-none focus:border-cosmic-blue transition-colors appearance-none cursor-none"
                     >
-                      <option value="starter">Di bawah Rp 1 Juta</option>
-                      <option value="mid-tier">Rp 1 Juta - Rp 3 Juta</option>
-                      <option value="scale">Rp 3 Juta - Rp 5 Juta</option>
-                      <option value="enterprise">Di atas Rp 5 Juta</option>
+                      <option value="starter">{t('contact', 'formBudgets')['starter']}</option>
+                      <option value="mid-tier">{t('contact', 'formBudgets')['mid-tier']}</option>
+                      <option value="scale">{t('contact', 'formBudgets')['scale']}</option>
+                      <option value="enterprise">{t('contact', 'formBudgets')['enterprise']}</option>
                     </select>
                   </div>
                 </div>
 
                 {/* Textarea details */}
                 <div>
-                  <label className="block text-xs uppercase tracking-widest text-star-muted font-bold mb-2 font-mono">
-                    Deskripsi Singkat Projek
+                  <label className="block text-xs uppercase tracking-widest text-star-muted font-bold mb-2 font-mono select-none">
+                    {t('contact', 'formLabels')['brief']}
                   </label>
                   <textarea
                     rows={4}
-                    placeholder="Ceritakan singkat mengenai produk Anda, audiens kompetitor, sasaran, atau aspirasi brand..."
+                    placeholder={t('contact', 'formPlaceholders')['brief']}
                     value={formData.details}
                     onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                    className="w-full bg-space-1 border border-white/5 rounded-xl px-4 py-3.5 text-sm text-white outline-none focus:border-cosmic-blue transition-colors placeholder-star-muted resize-none"
+                    className="w-full bg-space-1 border border-white/5 rounded-xl px-4 py-3.5 text-sm text-white outline-none focus:border-cosmic-blue transition-colors placeholder-star-muted resize-none cursor-none"
                   />
                 </div>
 
@@ -184,16 +188,16 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full text-center py-4 rounded-full bg-cosmic-blue hover:bg-blue-600 text-white font-semibold text-xs uppercase tracking-widest tracking-wide transition-all shadow-lg shadow-cosmic-blue/20 hover:shadow-cosmic-blue/40 disabled:opacity-50 active:scale-95 flex items-center justify-center gap-2 cursor-none"
+                  className="w-full text-center py-4 rounded-full bg-cosmic-blue hover:bg-blue-600 text-white font-semibold text-xs uppercase tracking-widest transition-all shadow-lg shadow-cosmic-blue/20 hover:shadow-cosmic-blue/40 disabled:opacity-50 active:scale-95 flex items-center justify-center gap-2 cursor-none"
                 >
                   {loading ? (
                     <>
                       <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      Mengirim Sinyal...
+                      {t('contact', 'submitting')}
                     </>
                   ) : (
                     <>
-                      Kirim Bahasan Projek
+                      {t('contact', 'submitBtn')}
                       <Send className="w-3.5 h-3.5" />
                     </>
                   )}
