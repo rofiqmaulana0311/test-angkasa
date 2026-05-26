@@ -17,6 +17,7 @@ export default function Portfolio() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const portfolioItems: PortfolioItem[] = [
+    // --- 1. LOGO category (5 items) ---
     {
       id: 'nexus-capital',
       client: t('portfolio', 'items')['nexus-capital']?.client || 'Fintech · Logo Design',
@@ -26,22 +27,6 @@ export default function Portfolio() {
       mockupType: 'nexus',
     },
     {
-      id: 'luminar-dashboard',
-      client: t('portfolio', 'items')['luminar-dashboard']?.client || 'SaaS · Logo Motion',
-      title: t('portfolio', 'items')['luminar-dashboard']?.title || 'Luminar Kinetic Moving Mark',
-      category: 'motion',
-      themeClass: 'bg-gradient-to-br from-[#0D1F3C] via-[#0A152B] to-[#091427]',
-      mockupType: 'luminar',
-    },
-    {
-      id: 'vault-protocol',
-      client: t('portfolio', 'items')['vault-protocol']?.client || 'Web3 · Collateral & Print',
-      title: t('portfolio', 'items')['vault-protocol']?.title || 'Vault Stationery & Packaging Set',
-      category: 'collateral',
-      themeClass: 'bg-gradient-to-br from-[#040D1F] via-[#081730] to-[#0A2040]',
-      mockupType: 'vault',
-    },
-    {
       id: 'kosmik-market',
       client: t('portfolio', 'items')['kosmik-market']?.client || 'E-Commerce · Custom Lettering',
       title: t('portfolio', 'items')['kosmik-market']?.title || 'Kosmik Custom Lettering Logotype',
@@ -49,6 +34,32 @@ export default function Portfolio() {
       themeClass: 'bg-gradient-to-br from-[#060F25] via-[#0F2040] to-[#142850]',
       mockupType: 'kosmik',
     },
+    {
+      id: 'arkadia-labs',
+      client: t('portfolio', 'items')['arkadia-labs']?.client || 'Web3 · Logo Design',
+      title: t('portfolio', 'items')['arkadia-labs']?.title || 'Arkadia Cryptographic Sigil Symbol',
+      category: 'logo',
+      themeClass: 'bg-gradient-to-br from-[#0F0C20] via-[#20153D] to-[#2B1B54]',
+      mockupType: 'arkadia',
+    },
+    {
+      id: 'hyperion-org',
+      client: t('portfolio', 'items')['hyperion-org']?.client || 'Cybersecurity · Logo Design',
+      title: t('portfolio', 'items')['hyperion-org']?.title || 'Hyperion Cybernetical Emblem',
+      category: 'logo',
+      themeClass: 'bg-gradient-to-br from-[#0B1A1E] via-[#102A30] to-[#153B44]',
+      mockupType: 'hyperion',
+    },
+    {
+      id: 'zephyr-marine',
+      client: t('portfolio', 'items')['zephyr-marine']?.client || 'Maritime · Logo Design',
+      title: t('portfolio', 'items')['zephyr-marine']?.title || 'Zephyr Wind & Wave Logomark',
+      category: 'logo',
+      themeClass: 'bg-gradient-to-br from-[#02181E] via-[#052C35] to-[#0A414E]',
+      mockupType: 'zephyr',
+    },
+
+    // --- 2. IDENTITY category (5 items) ---
     {
       id: 'strata-living',
       client: t('portfolio', 'items')['strata-living']?.client || 'PropTech · Visual Identity',
@@ -66,12 +77,38 @@ export default function Portfolio() {
       mockupType: 'bintara',
     },
     {
-      id: 'arkadia-labs',
-      client: t('portfolio', 'items')['arkadia-labs']?.client || 'Web3 · Logo Design',
-      title: t('portfolio', 'items')['arkadia-labs']?.title || 'Arkadia Cryptographic Sigil Symbol',
-      category: 'logo',
-      themeClass: 'bg-gradient-to-br from-[#0F0C20] via-[#20153D] to-[#2B1B54]',
-      mockupType: 'arkadia',
+      id: 'zenith-esports',
+      client: t('portfolio', 'items')['zenith-esports']?.client || 'Gaming · Visual Identity',
+      title: t('portfolio', 'items')['zenith-esports']?.title || 'Zenith Esports Core Brand System',
+      category: 'identity',
+      themeClass: 'bg-gradient-to-br from-[#12041C] via-[#2A0B3F] to-[#3D0F5C]',
+      mockupType: 'zenith',
+    },
+    {
+      id: 'orion-home',
+      client: t('portfolio', 'items')['orion-home']?.client || 'IoT · Visual Identity',
+      title: t('portfolio', 'items')['orion-home']?.title || 'Orion Smart Home Guidelines',
+      category: 'identity',
+      themeClass: 'bg-gradient-to-br from-[#200A10] via-[#4A1525] to-[#691C33]',
+      mockupType: 'orion',
+    },
+    {
+      id: 'gaia-skincare',
+      client: t('portfolio', 'items')['gaia-skincare']?.client || 'Wellness · Visual Identity',
+      title: t('portfolio', 'items')['gaia-skincare']?.title || 'Gaia Botanical Brand Identity',
+      category: 'identity',
+      themeClass: 'bg-gradient-to-br from-[#071F15] via-[#0E3E2B] to-[#145C3F]',
+      mockupType: 'gaia',
+    },
+
+    // --- 3. COLLATERAL category (5 items) ---
+    {
+      id: 'vault-protocol',
+      client: t('portfolio', 'items')['vault-protocol']?.client || 'Web3 · Collateral & Print',
+      title: t('portfolio', 'items')['vault-protocol']?.title || 'Vault Stationery & Packaging Set',
+      category: 'collateral',
+      themeClass: 'bg-gradient-to-br from-[#040D1F] via-[#081730] to-[#0A2040]',
+      mockupType: 'vault',
     },
     {
       id: 'apex-retail',
@@ -82,6 +119,40 @@ export default function Portfolio() {
       mockupType: 'apex',
     },
     {
+      id: 'nebula-coffee',
+      client: t('portfolio', 'items')['nebula-coffee']?.client || 'Retail · Collateral & Print',
+      title: t('portfolio', 'items')['nebula-coffee']?.title || 'Nebula Blend Premium Coffee Bag',
+      category: 'collateral',
+      themeClass: 'bg-gradient-to-br from-[#081215] via-[#10242A] to-[#14313B]',
+      mockupType: 'nebula',
+    },
+    {
+      id: 'chronos-watch',
+      client: t('portfolio', 'items')['chronos-watch']?.client || 'Luxury · Collateral & Print',
+      title: t('portfolio', 'items')['chronos-watch']?.title || 'Chronos Premium Watch Box Edition',
+      category: 'collateral',
+      themeClass: 'bg-gradient-to-br from-[#1F180A] via-[#3E3014] to-[#59441D]',
+      mockupType: 'chronos',
+    },
+    {
+      id: 'astral-botanicals',
+      client: t('portfolio', 'items')['astral-botanicals']?.client || 'Beverage · Collateral & Print',
+      title: t('portfolio', 'items')['astral-botanicals']?.title || 'Astral Gin Botanical Craft Cylinder',
+      category: 'collateral',
+      themeClass: 'bg-gradient-to-br from-[#061C19] via-[#0D3832] to-[#14544B]',
+      mockupType: 'astral',
+    },
+
+    // --- 4. MOTION category (5 items) ---
+    {
+      id: 'luminar-dashboard',
+      client: t('portfolio', 'items')['luminar-dashboard']?.client || 'SaaS · Logo Motion',
+      title: t('portfolio', 'items')['luminar-dashboard']?.title || 'Luminar Kinetic Moving Mark',
+      category: 'motion',
+      themeClass: 'bg-gradient-to-br from-[#0D1F3C] via-[#0A152B] to-[#091427]',
+      mockupType: 'luminar',
+    },
+    {
       id: 'equinox-brand',
       client: t('portfolio', 'items')['equinox-brand']?.client || 'Creative · Logo Motion',
       title: t('portfolio', 'items')['equinox-brand']?.title || 'Equinox Celestial Orbit Reel',
@@ -90,13 +161,29 @@ export default function Portfolio() {
       mockupType: 'equinox',
     },
     {
-      id: 'nebula-coffee',
-      client: t('portfolio', 'items')['nebula-coffee']?.client || 'Retail · Collateral & Print',
-      title: t('portfolio', 'items')['nebula-coffee']?.title || 'Nebula Blend Premium Coffee Bag',
-      category: 'collateral',
-      themeClass: 'bg-gradient-to-br from-[#081215] via-[#10242A] to-[#14313B]',
-      mockupType: 'nebula',
+      id: 'polaris-pulse',
+      client: t('portfolio', 'items')['polaris-pulse']?.client || 'Entertainment · Logo Motion',
+      title: t('portfolio', 'items')['polaris-pulse']?.title || 'Polaris Neon Pulse Identity Reveal',
+      category: 'motion',
+      themeClass: 'bg-gradient-to-br from-[#041E24] via-[#093D48] to-[#0E5968]',
+      mockupType: 'polaris',
     },
+    {
+      id: 'vektor-cybernetics',
+      client: t('portfolio', 'items')['vektor-cybernetics']?.client || 'Tech · Logo Motion',
+      title: t('portfolio', 'items')['vektor-cybernetics']?.title || 'Vektor Cybernetic Reveal Loop',
+      category: 'motion',
+      themeClass: 'bg-gradient-to-br from-[#1C0510] via-[#3E0A24] to-[#5E1237]',
+      mockupType: 'vektor',
+    },
+    {
+      id: 'solis-glitch',
+      client: t('portfolio', 'items')['solis-glitch']?.client || 'Media · Logo Motion',
+      title: t('portfolio', 'items')['solis-glitch']?.title || 'Solis Glitch Branding Signature',
+      category: 'motion',
+      themeClass: 'bg-gradient-to-br from-[#1B1104] via-[#3D270A] to-[#5C3A0F]',
+      mockupType: 'solis',
+    }
   ];
 
   // Mouse tilt perspective handlers
@@ -316,6 +403,115 @@ export default function Portfolio() {
             <rect x="55" y="160" width="50" height="2" rx="1" fill="rgba(20,184,166,0.5)" />
           </svg>
         );
+      case 'hyperion':
+        return (
+          <svg className="w-full max-w-[240px] aspect-square drop-shadow-2xl" viewBox="0 0 200 200" fill="none">
+            <polygon points="100,30 160,60 160,140 100,170 40,140 40,60" stroke="rgba(21,128,61,0.3)" strokeWidth="1.5" />
+            <polygon points="100,45 145,70 145,130 100,155 55,130 55,70" stroke="rgba(34,197,94,0.6)" strokeWidth="2" fill="rgba(34,197,94,0.05)" />
+            <line x1="100" y1="45" x2="100" y2="155" stroke="rgba(34,197,94,0.3)" strokeWidth="1" strokeDasharray="4 4" />
+            <circle cx="100" cy="100" r="18" fill="rgba(34,197,94,0.15)" stroke="#22C55E" strokeWidth="1.5" />
+            <path d="M94,100 L98,104 L106,96" stroke="#22C55E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        );
+      case 'zephyr':
+        return (
+          <svg className="w-full max-w-[240px] aspect-square drop-shadow-2xl" viewBox="0 0 200 200" fill="none">
+            <circle cx="100" cy="100" r="70" stroke="rgba(6,182,212,0.15)" strokeWidth="1" />
+            <path d="M50,100 C70,70 100,70 120,100 C140,130 170,130 190,100" stroke="rgba(6,182,212,0.6)" strokeWidth="2.5" strokeLinecap="round" />
+            <path d="M40,120 C60,95 90,95 110,120 C130,145 160,145 180,120" stroke="rgba(6,182,212,0.3)" strokeWidth="1.5" strokeLinecap="round" />
+            <circle cx="120" cy="100" r="4" fill="#06B6D4" />
+            <circle cx="110" cy="120" r="3" fill="rgba(6,182,212,0.7)" />
+          </svg>
+        );
+      case 'zenith':
+        return (
+          <svg className="w-full max-w-[240px] aspect-square drop-shadow-2xl" viewBox="0 0 200 200" fill="none">
+            <path d="M50,140 L100,50 L150,140 L115,120 L100,135 L85,120 Z" fill="rgba(168,85,247,0.1)" stroke="rgba(168,85,247,0.7)" strokeWidth="2.5" strokeLinejoin="round" />
+            <line x1="100" y1="50" x2="100" y2="135" stroke="rgba(168,85,247,0.4)" strokeWidth="1" strokeDasharray="3 3" />
+            <circle cx="100" cy="50" r="5" fill="#A855F7" />
+            <circle cx="50" cy="140" r="4" fill="rgba(168,85,247,0.5)" />
+            <circle cx="150" cy="140" r="4" fill="rgba(168,85,247,0.5)" />
+          </svg>
+        );
+      case 'orion':
+        return (
+          <svg className="w-full max-w-[240px] aspect-square drop-shadow-2xl" viewBox="0 0 200 200" fill="none">
+            <rect x="55" y="55" width="90" height="90" rx="20" stroke="rgba(244,63,94,0.2)" strokeWidth="1.5" />
+            <rect x="70" y="70" width="60" height="60" rx="12" fill="rgba(244,63,94,0.05)" stroke="rgba(244,63,94,0.6)" strokeWidth="2" />
+            <circle cx="100" cy="100" r="16" stroke="rgba(244,63,94,0.3)" strokeWidth="1" strokeDasharray="3 3" />
+            <polygon points="100,88 112,100 106,100 106,112 94,112 94,100 88,100" fill="#F43F5E" />
+          </svg>
+        );
+      case 'gaia':
+        return (
+          <svg className="w-full max-w-[240px] aspect-square drop-shadow-2xl" viewBox="0 0 200 200" fill="none">
+            <path d="M100,40 C140,40 160,80 140,130 C120,170 100,170 100,170 C100,170 80,170 60,130 C40,80 60,40 100,40 Z" fill="rgba(16,185,129,0.06)" stroke="rgba(16,185,129,0.5)" strokeWidth="2" />
+            <path d="M100,170 L100,60" stroke="rgba(16,185,129,0.4)" strokeWidth="1.5" />
+            <path d="M100,140 C115,130 125,120 130,105" stroke="rgba(16,185,129,0.4)" strokeWidth="1.2" />
+            <path d="M100,110 C85,100 75,90 70,75" stroke="rgba(16,185,129,0.4)" strokeWidth="1.2" />
+            <circle cx="100" cy="40" r="4" fill="#10B981" />
+          </svg>
+        );
+      case 'chronos':
+        return (
+          <svg className="w-full max-w-[240px] aspect-square drop-shadow-2xl" viewBox="0 0 200 200" fill="none">
+            <circle cx="100" cy="100" r="70" stroke="rgba(234,179,8,0.2)" strokeWidth="1" />
+            <circle cx="100" cy="100" r="62" stroke="rgba(234,179,8,0.5)" strokeWidth="2" fill="rgba(2,4,9,0.4)" />
+            <line x1="100" y1="46" x2="100" y2="56" stroke="rgba(234,179,8,0.8)" strokeWidth="2.5" />
+            <line x1="100" y1="154" x2="100" y2="144" stroke="rgba(234,179,8,0.4)" strokeWidth="1.5" />
+            <line x1="46" y1="100" x2="56" y2="100" stroke="rgba(234,179,8,0.4)" strokeWidth="1.5" />
+            <line x1="154" y1="100" x2="144" y2="100" stroke="rgba(234,179,8,0.4)" strokeWidth="1.5" />
+            <line x1="100" y1="100" x2="125" y2="75" stroke="#EAB308" strokeWidth="2.5" strokeLinecap="round" />
+            <line x1="100" y1="100" x2="80" y2="115" stroke="rgba(255,255,255,0.7)" strokeWidth="1.5" strokeLinecap="round" />
+            <circle cx="100" cy="100" r="5" fill="#EAB308" stroke="#000" strokeWidth="1" />
+          </svg>
+        );
+      case 'astral':
+        return (
+          <svg className="w-full max-w-[220px] aspect-square drop-shadow-2xl" viewBox="0 0 200 200" fill="none">
+            <circle cx="100" cy="100" r="75" stroke="rgba(20,184,166,0.15)" strokeWidth="1" strokeDasharray="4 4" />
+            <circle cx="100" cy="100" r="55" stroke="rgba(20,184,166,0.4)" strokeWidth="1.5" />
+            <circle cx="100" cy="100" r="30" stroke="rgba(20,184,166,0.6)" strokeWidth="2" fill="rgba(20,184,166,0.05)" />
+            <polygon points="100,55 112,85 145,85 118,105 128,138 100,118 72,138 82,105 55,85 88,85" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
+            <circle cx="100" cy="100" r="4" fill="#14B8A6" />
+          </svg>
+        );
+      case 'polaris':
+        return (
+          <svg className="w-full max-w-[240px] aspect-square drop-shadow-2xl" viewBox="0 0 200 200" fill="none">
+            <circle cx="100" cy="100" r="75" stroke="rgba(14,165,233,0.15)" strokeWidth="1.5" />
+            <circle cx="100" cy="100" r="50" stroke="rgba(14,165,233,0.3)" strokeWidth="1" strokeDasharray="3 3" />
+            <circle cx="100" cy="100" r="25" fill="rgba(14,165,233,0.05)" stroke="rgba(14,165,233,0.6)" strokeWidth="1.5" />
+            <line x1="20" y1="100" x2="180" y2="100" stroke="rgba(14,165,233,0.2)" strokeWidth="1" />
+            <line x1="100" y1="20" x2="100" y2="180" stroke="rgba(14,165,233,0.2)" strokeWidth="1" />
+            <path d="M100,25 A75,75 0 0,1 175,100" stroke="#0EA5E9" strokeWidth="2" strokeLinecap="round" />
+            <circle cx="145" cy="55" r="5" fill="#0EA5E9" className="animate-pulse" />
+          </svg>
+        );
+      case 'vektor':
+        return (
+          <svg className="w-full max-w-[240px] aspect-square drop-shadow-2xl" viewBox="0 0 200 200" fill="none">
+            {/* Draw isometric 3D cube cube wireframe */}
+            <polygon points="100,45 155,75 100,105 45,75" fill="rgba(236,72,153,0.05)" stroke="rgba(236,72,153,0.6)" strokeWidth="1.5" />
+            <polygon points="45,75 100,105 100,165 45,135" fill="rgba(236,72,153,0.08)" stroke="rgba(236,72,153,0.4)" strokeWidth="1.5" />
+            <polygon points="155,75 100,105 100,165 155,135" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.5)" strokeWidth="1.5" />
+            <line x1="100" y1="105" x2="100" y2="165" stroke="rgba(236,72,153,0.6)" strokeWidth="1.5" />
+            <circle cx="100" cy="45" r="4" fill="#EC4899" />
+            <circle cx="45" cy="75" r="3" fill="rgba(255,255,255,0.6)" />
+            <circle cx="155" cy="75" r="3" fill="rgba(255,255,255,0.6)" />
+          </svg>
+        );
+      case 'solis':
+        return (
+          <svg className="w-full max-w-[240px] aspect-square drop-shadow-2xl" viewBox="0 0 200 200" fill="none">
+            {/* Elegant wavy lines symbolizing modern glitch visual graphics */}
+            <circle cx="100" cy="100" r="55" fill="rgba(249,115,22,0.06)" stroke="rgba(249,115,22,0.4)" strokeWidth="1.5" />
+            <path d="M60,110 Q80,75 100,110 T140,110" stroke="#F97316" strokeWidth="2.5" strokeLinecap="round" />
+            <path d="M55,95 Q77,80 100,95 T145,95" stroke="rgba(249,115,22,0.5)" strokeWidth="1.5" strokeLinecap="round" />
+            <line x1="45" y1="125" x2="155" y2="125" stroke="rgba(249,115,22,0.2)" strokeWidth="1" strokeDasharray="3 3" />
+            <circle cx="100" cy="110" r="4" fill="#F97316" />
+          </svg>
+        );
       default:
         return null;
     }
@@ -457,23 +653,12 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* Slider Dots Indicator - Pagination UI */}
-        <div className="flex items-center justify-center gap-2 mt-8">
-          {filteredItems.map((item, idx) => {
-            const isActive = idx === activeSegmentIndex;
-            return (
-              <button
-                key={item.id}
-                onClick={() => scrollToItem(idx)}
-                className={`h-2.5 rounded-full transition-all duration-300 cursor-none ${
-                  isActive 
-                    ? 'w-7 bg-cosmic-blue shadow-lg shadow-cosmic-blue/50' 
-                    : 'w-2.5 bg-white/10 hover:bg-white/30'
-                }`}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            );
-          })}
+        {/* Slider Glowing Progress Bar - visualizer timeline */}
+        <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden mt-8 relative">
+          <div
+            className="absolute top-0 bottom-0 left-0 bg-cosmic-blue h-full rounded-full shadow-lg shadow-cosmic-blue/50 transition-all duration-150 ease-out"
+            style={{ width: `${scrollProgress}%` }}
+          />
         </div>
 
         {/* Helper swipe hint for mobile layout */}

@@ -12,7 +12,7 @@ export interface PortfolioItem {
   title: string;
   category: 'logo' | 'identity' | 'collateral' | 'motion';
   themeClass: string;
-  mockupType: 'nexus' | 'luminar' | 'vault' | 'kosmik' | 'strata' | 'bintara' | 'arkadia' | 'apex' | 'equinox' | 'nebula';
+  mockupType: string;
   image?: string; // Optional custom user image path path relative to public e.g. "/images/portfolio1.png"
 }
 
