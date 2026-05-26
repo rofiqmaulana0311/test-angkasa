@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Check, Sparkles } from 'lucide-react';
+import { Send, Check, Sparkles, Linkedin, Instagram, Dribbble, Palette, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 export default function Footer() {
@@ -73,23 +73,26 @@ export default function Footer() {
 
             <div className="flex flex-wrap gap-2.5">
               {[
-                { name: 'LinkedIn', key: 'linkedin', label: 'ln' },
-                { name: 'Behance', key: 'behance', label: 'be' },
-                { name: 'Dribbble', key: 'dribbble', label: 'dr' },
-                { name: 'Instagram', key: 'instagram', label: 'ig' },
-                { name: 'WhatsApp', key: 'whatsapp', label: 'wa' },
-              ].map((platform) => (
-                <a
-                  key={platform.key}
-                  href={socialLinks[platform.key as keyof typeof socialLinks]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-white/5 bg-space-2/30 hover:border-cosmic-blue/30 text-star-dim hover:text-cosmic-blue flex items-center justify-center transition-all duration-200 text-xs font-mono font-bold cursor-none"
-                  aria-label={platform.name}
-                >
-                  {platform.label}
-                </a>
-              ))}
+                { name: 'LinkedIn', key: 'linkedin', icon: Linkedin },
+                { name: 'Behance', key: 'behance', icon: Palette },
+                { name: 'Dribbble', key: 'dribbble', icon: Dribbble },
+                { name: 'Instagram', key: 'instagram', icon: Instagram },
+                { name: 'WhatsApp', key: 'whatsapp', icon: MessageCircle },
+              ].map((platform) => {
+                const IconComponent = platform.icon;
+                return (
+                  <a
+                    key={platform.key}
+                    href={socialLinks[platform.key as keyof typeof socialLinks]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full border border-white/5 bg-space-2/30 hover:border-cosmic-blue/30 text-star-dim hover:text-cosmic-blue flex items-center justify-center transition-all duration-200 cursor-none"
+                    aria-label={platform.name}
+                  >
+                    <IconComponent className="w-4.5 h-4.5 stroke-[1.5]" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
