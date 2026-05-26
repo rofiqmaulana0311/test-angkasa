@@ -78,6 +78,11 @@ const translations: Record<Language, Record<string, any>> = {
         'vault-protocol': { client: 'Web3 · Collateral & Print', title: 'Vault Stationery & Packaging Set' },
         'kosmik-market': { client: 'E-Commerce · Custom Lettering', title: 'Kosmik Custom Lettering Logotype' },
         'strata-living': { client: 'PropTech · Visual Identity', title: 'Strata Living Guidelines Book' },
+        'bintara-finance': { client: 'Fintech · Visual Identity', title: 'Bintara Integrated Rebrand System' },
+        'arkadia-labs': { client: 'Web3 · Logo Design', title: 'Arkadia Cryptographic Sigil Symbol' },
+        'apex-retail': { client: 'E-Commerce · Collateral & Print', title: 'Apex Eco Retail Shoebox Line' },
+        'equinox-brand': { client: 'Creative · Logo Motion', title: 'Equinox Celestial Orbit Reel' },
+        'nebula-coffee': { client: 'Retail · Collateral & Print', title: 'Nebula Blend Premium Coffee Bag' },
       }
     },
     testimonials: {
@@ -341,6 +346,11 @@ const translations: Record<Language, Record<string, any>> = {
         'vault-protocol': { client: 'Web3 · Materi Cetak', title: 'Vault Stationery & Packaging Set' },
         'kosmik-market': { client: 'E-Commerce · Tipografi Kustom', title: 'Kosmik Custom Lettering Logotype' },
         'strata-living': { client: 'PropTech · Identitas Visual', title: 'Strata Living Guidelines Book' },
+        'bintara-finance': { client: 'Fintech · Identitas Visual', title: 'Sistem Rebrand Terpadu Bintara' },
+        'arkadia-labs': { client: 'Web3 · Desain Logo', title: 'Simbol Sigil Kriptografis Arkadia' },
+        'apex-retail': { client: 'E-Commerce · Desain Cetak & Kemasan', title: 'Seri Kotak Sepatu Ramah Lingkungan Apex' },
+        'equinox-brand': { client: 'Kreatif · Animasi Logo', title: 'Kinetika Orbit Bintang Equinox' },
+        'nebula-coffee': { client: 'Sektor Ritel · Desain Cetak & Kemasan', title: 'Kemasan Kopi Premium Nebula Blend' },
       }
     },
     testimonials: {
