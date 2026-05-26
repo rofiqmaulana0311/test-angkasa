@@ -85,9 +85,9 @@ export default function Hero() {
 
         {/* Display Heading */}
         <h1 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.05] mb-6 max-w-4xl text-white select-none">
-          We Craft Brands <br />
-          That <span className="italic font-extrabold bg-gradient-to-r from-blue-400 via-cosmic-blue to-cosmic-cyan bg-clip-text text-transparent">Orbit</span> the <br />
-          Future
+          Identitas Visual yang <br />
+          Siap Membawa Brand Anda <br />
+          <span className="font-extrabold bg-gradient-to-r from-blue-400 via-cosmic-blue to-cosmic-cyan bg-clip-text text-transparent">Lebih Jauh</span>
         </h1>
 
         {/* Subtext */}
@@ -108,7 +108,7 @@ export default function Hero() {
             href="#services"
             className="group inline-flex items-center gap-2 w-full sm:w-auto justify-center px-8 py-4 rounded-full bg-transparent hover:text-white transition-all text-sm font-medium tracking-wide text-star-dim"
           >
-            Explore Services
+            Pelajari Layanan
             <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
@@ -120,15 +120,15 @@ export default function Hero() {
               {stats.launched}+
             </span>
             <span className="text-[9px] sm:text-[10px] text-star-muted uppercase tracking-widest font-mono">
-              Brands Launched
+              Brand Diluncurkan
             </span>
           </div>
           <div className="text-center">
             <span className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-white block mb-1">
-              {stats.years}yr
+              {stats.years} Thn
             </span>
             <span className="text-[9px] sm:text-[10px] text-star-muted uppercase tracking-widest font-mono">
-              In Orbit
+              Mengudara
             </span>
           </div>
           <div className="text-center">
@@ -136,7 +136,7 @@ export default function Hero() {
               {stats.score}
             </span>
             <span className="text-[9px] sm:text-[10px] text-star-muted uppercase tracking-widest font-mono">
-              Awg. Nett. Score
+              Skor Kepuasan
             </span>
           </div>
           <div className="text-center">
@@ -144,7 +144,7 @@ export default function Hero() {
               {stats.rate}
             </span>
             <span className="text-[9px] sm:text-[10px] text-star-muted uppercase tracking-widest font-mono">
-              Client Rating
+              Rating Klien
             </span>
           </div>
         </div>
@@ -156,7 +156,7 @@ export default function Hero() {
         className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 group transition-colors hover:text-white text-star-dim select-none"
       >
         <span className="text-[9px] uppercase tracking-widest leading-none text-star-muted group-hover:text-white font-mono">
-          Scroll Down
+          Gulir ke Bawah
         </span>
         <div className="w-0.5 h-12 bg-gradient-to-b from-cosmic-blue to-transparent rounded-full overflow-hidden relative">
           <div className="absolute top-0 left-0 right-0 h-4 bg-white rounded-full scroll-line-anim" />

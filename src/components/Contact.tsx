@@ -56,7 +56,7 @@ export default function Contact() {
             <div className="py-12 flex flex-col items-center justify-center animate-pulse">
               <CheckCircle2 className="w-16 h-16 text-cosmic-cyan mb-6" />
               <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white mb-2 tracking-tight">
-                You're in Orbit! ✓
+                Sukses Mengorbit! ✓
               </h3>
               <p className="text-star-dim font-light text-sm sm:text-base max-w-md leading-relaxed mb-8">
                 Terima kasih, <strong>{formData.name}</strong>. Proposal proyek Anda berhasil didaftarkan di sistem kami. Tim Angkasa Studio akan menghubungi Anda dalam 24 jam ke WhatsApp <strong>{formData.whatsapp}</strong>.
@@ -85,10 +85,10 @@ export default function Contact() {
             /* Proposal Configurator Form */
             <div>
               <span className="text-[10px] font-bold uppercase tracking-widest text-cosmic-blue block mb-4">
-                Ready for Liftoff?
+                Siap Lepas Landas?
               </span>
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-none">
-                Your Brand Deserves <br /> a Cosmic Upgrade
+                Saatnya Brand Anda <br /> Mengangkasa Lebih Tinggi
               </h2>
               <p className="text-star-dim font-light text-sm sm:text-base max-w-md mx-auto leading-relaxed mb-10">
                 Bergabunglah dengan 87+ brand yang telah mempercayakan identitas visual mereka kepada kami. Slot tersedia terbatas setiap kuartal.
@@ -140,11 +140,11 @@ export default function Contact() {
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full bg-space-1 border border-white/5 rounded-xl px-4 py-3.5 text-sm text-white outline-none focus:border-cosmic-blue transition-colors appearance-none cursor-pointer"
                     >
-                      <option value="logo-design">Logo Design & Wordmarks</option>
-                      <option value="brand-identity">Brand Identity System (Full)</option>
-                      <option value="design-system">Token Design Systems (Figma)</option>
-                      <option value="digital-ux">Digital UI/UX Layout Design</option>
-                      <option value="custom">Paket Kustom Integrasi</option>
+                      <option value="logo-design">Logo Design & Wordmarks (Logo Designer)</option>
+                      <option value="visual-identity">Visual Identity System (Visual Identity Designer)</option>
+                      <option value="brand-collateral">Brand Collateral & Print (Packaging, Stationery)</option>
+                      <option value="logo-motion">Logo Motion & Animation (Animated Logo)</option>
+                      <option value="custom">Paket Kustom Integrasi (Comprehensive Suite)</option>
                     </select>
                   </div>
 
@@ -189,7 +189,7 @@ export default function Contact() {
                   {loading ? (
                     <>
                       <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      Establishing Uplink...
+                      Mengirim Sinyal...
                     </>
                   ) : (
                     <>

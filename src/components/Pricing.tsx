@@ -16,42 +16,42 @@ export default function Pricing() {
   const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
 
   const addons: PricingAddon[] = [
-    { id: 'logo-motion', name: 'Logo Animation / Motion Guidelines', priceIdr: 450000, priceUsd: 30 },
-    { id: 'social-media', name: 'Social Media Kit (+5 Templates)', priceIdr: 300000, priceUsd: 20 },
-    { id: 'stationery', name: 'Print Ready stationery Design', priceIdr: 250000, priceUsd: 18 },
-    { id: 'website', name: 'Landing Page Figma Layout', priceIdr: 1200000, priceUsd: 80 },
+    { id: 'logo-motion', name: 'Animasi Logo & Bumper Gerak', priceIdr: 450000, priceUsd: 30 },
+    { id: 'social-media', name: 'Kit Media Sosial (+5 Templat)', priceIdr: 300000, priceUsd: 20 },
+    { id: 'stationery', name: 'Desain Cetak Berkas Kantor (Stationery)', priceIdr: 250000, priceUsd: 18 },
+    { id: 'packaging', name: 'Desain Kemasan Siap Cetak (Packaging)', priceIdr: 850000, priceUsd: 58 },
   ];
 
   const plans = [
     {
       id: 'logo-sys',
       num: '01',
-      name: 'Startup Logo Package',
+      name: 'Paket Logo Startup',
       priceIdr: 500000,
       priceUsd: 35,
       description: 'Ideal untuk projek awal atau validasi produk yang butuh aset kilat.',
       features: [
-        'Logo design vector format',
-        'High resolution PNG & JPG assets',
-        '2 design revisions',
-        'Primary color palette set',
+        'Format logo vektor lengkap (.AI, .SVG)',
+        'Aset PNG & JPG resolusi tinggi',
+        'Batas revisi hingga 2 kali',
+        'Pilihan palet warna utama',
       ],
       badge: 'Launch',
     },
     {
       id: 'brand-identity',
       num: '02',
-      name: 'Full Brand Identity',
+      name: 'Identitas Brand Lengkap',
       priceIdr: 2500000,
       priceUsd: 175,
       description: 'Sistem visual lengkap dari nol hingga manual buku pedoman brand.',
       features: [
-        'Premium Logo & Wordmark System',
-        'Color theory & corporate palette system',
-        'Custom corporate typography pairings',
-        'Comprehensive 30+ Pages Guidelines PDF',
-        'Figma Design Assets Handover',
-        '3 design revisions',
+        'Sistem Logo & Nama Brand Premium',
+        'Teori Warna & Sistem Palet Warna',
+        'Paduan Tipografi Berkarakter',
+        'Panduan Lengkap PDF (30+ Halaman)',
+        'Penyerahan File Master Figma',
+        'Batas revisi hingga 3 kali',
       ],
       badge: 'Growth',
       isPopular: true,
@@ -59,17 +59,17 @@ export default function Pricing() {
     {
       id: 'full-branding',
       num: '03',
-      name: 'Enterprise Visual System',
+      name: 'Paket Identitas & Animasi Lengkap',
       priceIdr: 5000000,
       priceUsd: 350,
-      description: 'Solusi brand end-to-end terintegrasi dengan kemasan, website layout, dan motion.',
+      description: 'Solusi branding premium terintegrasi lengkap dengan materi cetak (collateral), desain kemasan, dan animasi logo dinamis.',
       features: [
-        'Everything in Full Brand Identity',
-        'Figma Design System Components',
-        'Brand stationery & Mockups',
-        'Packaging Design Layout',
-        '1-to-1 Brand Director Support',
-        'Unlimited revisions within timeline',
+        'Semua Fitur Identitas Lengkap',
+        'Animasi Logo & Bumper Intro Kustom',
+        'Aset Media Cetak & Stationery Premium',
+        'Desain Kemasan & File Siap Cetak',
+        'Dukungan 1-on-1 dengan Art Director Senior',
+        'Revisi Fleksibel Selama Masa Kontrak',
       ],
       badge: 'Scale',
     },
@@ -113,10 +113,10 @@ export default function Pricing() {
           <div className="max-w-xl">
             <div className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-widest text-cosmic-blue">
               <span className="w-6 h-0.5 bg-cosmic-blue block" />
-              Transparent Pricing
+              Harga Transparan
             </div>
             <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
-              Investment For <br /> Your Brand
+              Investasi Terbaik <br /> untuk Brand Anda
             </h2>
             <p className="text-star-dim font-light text-sm sm:text-base">
               Paket investasi optimal dirancang fleksibel menyesuaikan tingkat pertumbuhan bisnis Anda.
@@ -165,7 +165,7 @@ export default function Pricing() {
                 {plan.isPopular && (
                   <div className="absolute top-0 right-8 -translate-y-1/2 inline-flex items-center gap-1 px-4 py-1.5 rounded-full bg-cosmic-blue text-[10px] font-bold uppercase tracking-widest text-white shadow-lg">
                     <Sparkles className="w-3 h-3 text-cyan-200" />
-                    RECOMMENDED
+                    REKOMENDASI
                   </div>
                 )}
 
@@ -192,7 +192,7 @@ export default function Pricing() {
                     {formatPrice(basePrice)}
                   </span>
                   <span className="text-[11px] text-star-muted block mt-1 font-mono">
-                    Fix Budget · No Hidden Fees
+                    Biaya Tetap · Tanpa Biaya Tersembunyi
                   </span>
                 </div>
 
@@ -215,7 +215,7 @@ export default function Pricing() {
                       : 'border border-white/10 hover:border-cosmic-blue hover:bg-cosmic-blue/5 text-white'
                   }`}
                 >
-                  Select Plan
+                  Pilih Paket
                 </a>
               </div>
             );
@@ -231,9 +231,9 @@ export default function Pricing() {
             {/* Left selector */}
             <div className="lg:col-span-8">
               <h4 className="font-display text-lg font-bold text-white mb-2 flex items-center gap-2">
-                Orbit Configurator
+                Konfigurasi Tambahan
                 <span className="px-2.5 py-0.5 rounded-md bg-cyan-500/10 text-cosmic-cyan text-[10px] font-mono tracking-widest font-normal uppercase animate-pulse">
-                  Interactive addon panel
+                  Panel Tambahan Interaktif
                 </span>
               </h4>
               <p className="text-star-dim font-light text-xs sm:text-sm leading-relaxed mb-6 max-w-2xl">
@@ -279,7 +279,7 @@ export default function Pricing() {
             {/* Right Estimator total presentation */}
             <div className="lg:col-span-4 p-6 rounded-xl bg-space-1 border border-white/5 text-center flex flex-col items-center justify-center min-h-[180px]">
               <span className="text-[10px] uppercase font-mono tracking-widest text-star-muted block mb-2">
-                ESTIMATED ADDON TOTAL
+                ESTIMASI BIAYA TAMBAHAN
               </span>
               <div className="font-display text-2xl sm:text-3xl font-black text-cosmic-cyan tracking-tight mb-2">
                 {formatPrice(getAddonCost())}

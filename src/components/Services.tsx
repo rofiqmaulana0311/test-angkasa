@@ -6,45 +6,31 @@ import { motion } from 'motion/react';
 export default function Services() {
   const serviceList: Service[] = [
     {
-      id: 'brand-identity',
-      title: 'Brand Identity System',
-      description: 'Logo mark, wordmark, color systems, typography, iconografi, dan brand language yang membangun konsistensi di setiap touchpoint.',
-      tags: ['Logo Design', 'Color System', 'Typography'],
-      icon: 'Layers',
-    },
-    {
-      id: 'digital-experience',
-      title: 'Digital Experience Design',
-      description: 'Website, landing page, dan web app dengan UI/UX yang intuitif, premium, dan dioptimasi untuk konversi dan retensi user.',
-      tags: ['UI/UX', 'Webflow', 'Framer'],
-      icon: 'Monitor',
-    },
-    {
-      id: 'brand-strategy',
-      title: 'Brand Strategy & Positioning',
-      description: 'Brand audit, competitive mapping, value proposition, tone of voice, dan narrative architecture yang membuat bisnis Anda tak tergantikan.',
-      tags: ['Strategy', 'Positioning', 'Messaging'],
+      id: 'logo-design',
+      title: 'Logo Design & Wordmarks',
+      description: 'Kreasi logo mark, kustom wordmark, monogram, dan letterform unik yang berkarakter kuat dan siap menjadi jangkar identitas bisnis Anda.',
+      tags: ['Custom Logo', 'Wordmark', 'Monogram'],
       icon: 'Target',
     },
     {
-      id: 'design-system',
-      title: 'Design System & Guidelines',
-      description: 'Token-based design systems, Figma component libraries, dan brand guidelines komprehensif untuk tim internal dan agen eksternal.',
-      tags: ['Design Tokens', 'Figma', 'Style Guide'],
-      icon: 'Cpu',
+      id: 'visual-identity',
+      title: 'Visual Identity Systems',
+      description: 'Sistem identitas visual terpadu mulai dari skema warna, panduan tipografi, aset ikonografi, hingga manual buku panduan penggunaan lengkap.',
+      tags: ['Brand Book', 'Color System', 'Typography'],
+      icon: 'Layers',
     },
     {
       id: 'brand-collateral',
       title: 'Brand Collateral & Print',
-      description: 'Pitch deck, company profile, stationery, packaging, dan marketing materials yang merepresentasikan kelas brand Anda secara konsisten.',
-      tags: ['Print Design', 'Packaging', 'Decks'],
+      description: 'Aset fisik & digital premium seperti desain kemasan (packaging), pitch deck, profil perusahaan, stationery, dan dokumen cetak resmi.',
+      tags: ['Packaging', 'Stationery', 'Pitch Decks'],
       icon: 'FileText',
     },
     {
-      id: 'motion-film',
-      title: 'Motion & Brand Film',
-      description: 'Logo animation, brand intro video, social motion content, dan motion guidelines yang menghadirkan brand Anda dalam dimensi keempat.',
-      tags: ['After Effects', 'Lottie', 'Motion'],
+      id: 'logo-motion',
+      title: 'Logo Motion & Animation',
+      description: 'Logo animasi, bumper intro berkualitas tinggi, motion graphics media sosial, dan pedoman animasi logo interaktif (Lottie & SVG).',
+      tags: ['Animation', 'Lottie / SVG', 'Bumper Intro'],
       icon: 'Film',
     },
   ];
@@ -83,13 +69,13 @@ export default function Services() {
         <div className="max-w-3xl mb-16">
           <div className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-widest text-cosmic-blue">
             <span className="w-6 h-0.5 bg-cosmic-blue block" />
-            Our Expertise
+            Keahlian Kami
           </div>
           <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-            Everything Your Brand <br /> Meets to Break Orbit
+            Segala Kebutuhan untuk <br /> Melesatkan Brand Anda
           </h2>
           <p className="text-star-dim font-light text-base sm:text-lg leading-relaxed max-w-xl">
-            Dari identitas visual hingga sistem desain skala enterprise — kami bangun setiap lapisan brand dengan presisi dan intentionalitas.
+            Dari logo ikonik, sistem identitas visual yang solid, materi cetak premium, hingga animasi gerakan logo dinamis — kami desain dengan presisi mutlak.
           </p>
         </div>
 

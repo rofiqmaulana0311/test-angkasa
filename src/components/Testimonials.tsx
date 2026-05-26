@@ -47,7 +47,7 @@ export default function Testimonials() {
     {
       id: 't6',
       stars: 5,
-      quote: 'What struck me most was how they translated our complex fintech product into a visual language that felt human, modern, and trustworthy. Exceptional work.',
+      quote: 'Yang paling membuat saya berkesan adalah bagaimana mereka menerjemahkan produk fintech kami yang rumit menjadi bahasa visual yang terasa ramah, modern, dan tepercaya. Pekerjaan yang luar biasa!',
       author: 'Arif Nugroho',
       role: 'CMO, Bintara Finance',
       avatarText: 'AN',
@@ -70,10 +70,10 @@ export default function Testimonials() {
       <div className="max-w-4xl mx-auto text-center px-6 mb-16">
         <div className="inline-flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-widest text-cosmic-blue justify-center">
           <span className="w-6 h-0.5 bg-cosmic-blue block" />
-          Client Voices
+          Suara Klien
         </div>
         <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
-          Words From the Stratosphere
+          Kesan Mereka yang Telah Mengudara
         </h2>
         <p className="text-star-dim font-light text-sm sm:text-base max-w-lg mx-auto">
           Klien berbicara lebih keras dari portofolio kami.

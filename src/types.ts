@@ -10,7 +10,7 @@ export interface PortfolioItem {
   id: string;
   client: string;
   title: string;
-  category: 'brand' | 'digital' | 'strategy';
+  category: 'logo' | 'identity' | 'collateral' | 'motion';
   themeClass: string;
   mockupType: 'nexus' | 'luminar' | 'vault' | 'kosmik' | 'strata';
   image?: string; // Optional custom user image path path relative to public e.g. "/images/portfolio1.png"

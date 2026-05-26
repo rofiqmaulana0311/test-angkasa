@@ -18,10 +18,10 @@ export default function Navbar() {
   };
 
   const menuItems = [
-    { label: 'Services', href: '#services' },
-    { label: 'Portfolio', href: '#portfolio' },
-    { label: 'Process', href: '#process' },
-    { label: 'Pricing', href: '#pricing' },
+    { label: 'Layanan', href: '#services' },
+    { label: 'Karya', href: '#portfolio' },
+    { label: 'Proses', href: '#process' },
+    { label: 'Harga', href: '#pricing' },
   ];
 
   return (
@@ -78,7 +78,7 @@ export default function Navbar() {
             href="#cta"
             className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-cosmic-blue rounded-full hover:bg-blue-600 active:scale-95 transition-all duration-200"
           >
-            Let's Talk
+            Hubungi Kami
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>
@@ -118,7 +118,7 @@ export default function Navbar() {
           onClick={() => setMobileMenuOpen(false)}
           className="flex items-center gap-2 px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-white bg-cosmic-blue rounded-full shadow-lg shadow-cosmic-blue/20 hover:bg-blue-600 transition-all active:scale-95 duration-200"
         >
-          Begin Discovery
+          Mulai Diskusi
           <Sparkles className="w-4 h-4 text-cyan-200 animate-pulse" />
         </a>
       </div>

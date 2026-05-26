@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function Portfolio() {
-  const [activeFilter, setActiveFilter] = useState<'all' | 'brand' | 'digital' | 'strategy'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'logo' | 'identity' | 'collateral' | 'motion'>('all');
   
   // Custom tilt state map to handle independent card 3D rotational perspective
   const [tiltStyles, setTiltStyles] = useState<Record<string, React.CSSProperties>>({});
@@ -12,9 +12,9 @@ export default function Portfolio() {
   const portfolioItems: PortfolioItem[] = [
     {
       id: 'nexus-capital',
-      client: 'Fintech · Brand Identity',
-      title: 'Nexus Capital Space System',
-      category: 'brand',
+      client: 'Fintech · Logo Design',
+      title: 'Nexus Geometric Star Symbol',
+      category: 'logo',
       themeClass: 'bg-gradient-to-br from-[#0A1628] via-[#0F2850] to-[#0C3878]',
       mockupType: 'nexus',
       // Ganti path gambar kustom di bawah ini (misal: '/images/portfolio-nexus.png')
@@ -22,9 +22,9 @@ export default function Portfolio() {
     },
     {
       id: 'luminar-dashboard',
-      client: 'SaaS · Web Experience',
-      title: 'Luminar Control Center',
-      category: 'digital',
+      client: 'SaaS · Logo Motion',
+      title: 'Luminar Kinetic Moving Mark',
+      category: 'motion',
       themeClass: 'bg-gradient-to-br from-[#0D1F3C] via-[#0A152B] to-[#091427]',
       mockupType: 'luminar',
       // Ganti path gambar kustom di bawah ini (misal: '/images/portfolio-luminar.png')
@@ -32,9 +32,9 @@ export default function Portfolio() {
     },
     {
       id: 'vault-protocol',
-      client: 'Web3 · Strategic Position',
-      title: 'Vault Protocol Architecture',
-      category: 'strategy',
+      client: 'Web3 · Collateral & Print',
+      title: 'Vault Stationery & Packaging Set',
+      category: 'collateral',
       themeClass: 'bg-gradient-to-br from-[#040D1F] via-[#081730] to-[#0A2040]',
       mockupType: 'vault',
       // Ganti path gambar kustom di bawah ini (misal: '/images/portfolio-vault.png')
@@ -42,9 +42,9 @@ export default function Portfolio() {
     },
     {
       id: 'kosmik-market',
-      client: 'E-Commerce · Digital Product',
-      title: 'Kosmik Retail Framework',
-      category: 'digital',
+      client: 'E-Commerce · Custom Lettering',
+      title: 'Kosmik Custom Lettering Logotype',
+      category: 'logo',
       themeClass: 'bg-gradient-to-br from-[#060F25] via-[#0F2040] to-[#142850]',
       mockupType: 'kosmik',
       // Ganti path gambar kustom di bawah ini (misal: '/images/portfolio-kosmik.png')
@@ -52,9 +52,9 @@ export default function Portfolio() {
     },
     {
       id: 'strata-living',
-      client: 'PropTech · Brand Strategy',
-      title: 'Strata Living Guidelines',
-      category: 'strategy',
+      client: 'PropTech · Visual Identity',
+      title: 'Strata Living Guidelines Book',
+      category: 'identity',
       themeClass: 'bg-gradient-to-br from-[#020814] via-[#0A1830] to-[#05101E]',
       mockupType: 'strata',
       // Ganti path gambar kustom di bawah ini (misal: '/images/portfolio-strata.png')
@@ -183,26 +183,32 @@ export default function Portfolio() {
           <div>
             <div className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-widest text-cosmic-blue">
               <span className="w-6 h-0.5 bg-cosmic-blue block" />
-              Selected Work
+              Karya Pilihan
             </div>
             <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-2 leading-tight">
-              Brands We've <br /> Sent to Orbit
+              Brand yang Telah <br /> Kami Orbitkan
             </h2>
           </div>
 
           {/* Interactive Filters Option Row */}
           <div className="flex flex-wrap gap-2 text-xs uppercase tracking-widest font-mono">
-            {['all', 'brand', 'digital', 'strategy'].map((cat) => (
+            {[
+              { id: 'all', label: 'Semua Karya' },
+              { id: 'logo', label: 'Desain Logo' },
+              { id: 'identity', label: 'Identitas Visual' },
+              { id: 'collateral', label: 'Materi Cetak' },
+              { id: 'motion', label: 'Animasi Logo' }
+            ].map((cat) => (
               <button
-                key={cat}
-                onClick={() => setActiveFilter(cat as any)}
+                key={cat.id}
+                onClick={() => setActiveFilter(cat.id as any)}
                 className={`px-5 py-2.5 rounded-full border transition-all duration-300 ${
-                  activeFilter === cat
+                  activeFilter === cat.id
                     ? 'bg-cosmic-blue border-cosmic-blue text-white shadow-lg shadow-cosmic-blue/20'
                     : 'bg-space-2/40 border-white/5 text-star-dim hover:text-white hover:border-white/20'
                 }`}
               >
-                {cat}
+                {cat.label}
               </button>
             ))}
           </div>

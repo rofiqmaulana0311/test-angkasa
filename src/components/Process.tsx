@@ -8,27 +8,27 @@ export default function Process() {
   const stepsList: ProcessStep[] = [
     {
       num: '01',
-      title: 'Discovery & Immersion',
+      title: 'Sesi Perkenalan & Riset',
       description: 'Deep-dive ke bisnis, kompetitor, audiens, dan aspirasi brand. Kami tidak mulai desain sebelum kami benar-benar memahami orbit Anda.',
     },
     {
       num: '02',
-      title: 'Strategy & Direction',
+      title: 'Strategi & Arah Kreatif',
       description: 'Brand positioning, mood board, dan creative direction yang disepakati bersama. Ini adalah peta bintang sebelum peluncuran.',
     },
     {
       num: '03',
-      title: 'Design & Refinement',
+      title: 'Mulai Desain & Revisi',
       description: 'Iterasi desain dengan presentasi yang transparan dan feedback loop yang efisien. Setiap revisi punya tujuan, bukan tebakan.',
     },
     {
       num: '04',
-      title: 'Delivery & Activation',
+      title: 'Peluncuran & Penyerahan',
       description: 'Handover aset lengkap, brand guidelines, dan briefing implementasi. Kami pastikan brand Anda siap terbang di semua platform.',
     },
     {
       num: '05',
-      title: 'Orbit Support',
+      title: 'Dukungan Berkelanjutan',
       description: 'Post-launch partnership untuk menjaga konsistensi brand seiring bisnis Anda berkembang. Kami mitra jangka panjang, bukan vendor satu proyek.',
     },
   ];
@@ -48,10 +48,10 @@ export default function Process() {
           <div>
             <div className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-widest text-cosmic-blue">
               <span className="w-6 h-0.5 bg-cosmic-blue block" />
-              Our Methodology
+              Metode Kerja Kami
             </div>
             <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-              The Angkasa <br /> Orbit System
+              Sistem Orbit <br /> Angkasa Studio
             </h2>
             <p className="text-star-dim font-light text-sm sm:text-base mb-10 leading-relaxed">
               Setiap proyek melewati sistem yang telah kami rancang untuk menghasilkan output konsisten, terukur, dan bernilai tinggi.
@@ -152,7 +152,7 @@ export default function Process() {
 
             {/* Active Step Status Anchor */}
             <div className="absolute bottom-6 px-6 py-2 rounded-full border border-cosmic-blue/20 bg-space-2/80 backdrop-blur-md text-xs font-mono tracking-widest text-cosmic-blue">
-              ORBIT LEVEL: 0{activeStep + 1}
+              LEVEL ORBIT: 0{activeStep + 1}
             </div>
           </div>
         </div>

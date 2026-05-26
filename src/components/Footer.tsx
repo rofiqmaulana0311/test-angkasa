@@ -77,32 +77,31 @@ export default function Footer() {
               Services
             </h4>
             <ul className="flex flex-col gap-3 list-none p-0 text-xs sm:text-sm font-light text-star-dim">
-              <li><a href="#services" className="hover:text-white transition-colors">Logo Design</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors font-semibold text-cosmic-blue">Visual Identity Systems</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Brand Guideline Booklets</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Custom Logo Motion</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Digital Product Assets</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Logo Design & Wordmarks</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Visual Identity Systems</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Brand Collateral & Print</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Logo Motion & Animation</a></li>
             </ul>
           </div>
 
           {/* Links col - Studio map */}
           <div className="lg:col-span-2">
             <h4 className="font-display text-xs font-extrabold uppercase tracking-widest text-white mb-6">
-              Studio Map
+              Peta Studio
             </h4>
             <ul className="flex flex-col gap-3 list-none p-0 text-xs sm:text-sm font-light text-star-dim">
-              <li><a href="#home" className="hover:text-white transition-colors">About Mission</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Services Desk</a></li>
-              <li><a href="#portfolio" className="hover:text-white transition-colors">Portfolio</a></li>
-              <li><a href="#process" className="hover:text-white transition-colors">Orbit Methodology</a></li>
-              <li><a href="#pricing" className="hover:text-white transition-colors">Investment Plans</a></li>
+              <li><a href="#home" className="hover:text-white transition-colors">Tentang Misi</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Daftar Layanan</a></li>
+              <li><a href="#portfolio" className="hover:text-white transition-colors">Karya Pilihan</a></li>
+              <li><a href="#process" className="hover:text-white transition-colors">Metode Orbit</a></li>
+              <li><a href="#pricing" className="hover:text-white transition-colors">Paket Investasi</a></li>
             </ul>
           </div>
 
           {/* Newsletter subscription form column */}
           <div className="lg:col-span-4">
             <h4 className="font-display text-xs font-extrabold uppercase tracking-widest text-white mb-6">
-              Stay in Orbit
+              Tetap Mengorbit
             </h4>
             <p className="text-star-dim font-light text-xs leading-relaxed mb-4">
               Dapatkan insights segar seputar branding, desain visual, dan strategi langsung di kotak masuk Anda.
@@ -112,7 +111,7 @@ export default function Footer() {
               <input
                 required
                 type="email"
-                placeholder={subscribed ? "Subscription active! ✓" : "email@anda.com"}
+                placeholder={subscribed ? "Pendaftaran Berhasil! ✓" : "email@anda.com"}
                 disabled={subscribed}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -147,12 +146,12 @@ export default function Footer() {
         {/* Footer bottom details bar */}
         <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-star-muted">
           <span>
-            © {new Date().getFullYear()} Angkasa Studio. All rights reserved.
+            © {new Date().getFullYear()} Angkasa Studio. Hak cipta dilindungi undang-undang.
           </span>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Use</a>
-            <a href="#" className="hover:text-white transition-colors">Cookie System</a>
+            <a href="#" className="hover:text-white transition-colors">Kebijakan Privasi</a>
+            <a href="#" className="hover:text-white transition-colors">Syarat Ketentuan</a>
+            <a href="#" className="hover:text-white transition-colors">Kebijakan Cookie</a>
           </div>
         </div>
 
