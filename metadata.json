@@ -1,0 +1,6 @@
+{
+  "name": "Angkasa Studio",
+  "description": "Brand & Design Studio - Premium visual identity and digital experiences for ambitious businesses",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

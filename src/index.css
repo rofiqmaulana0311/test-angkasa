@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  
+  --color-deep-space: #020409;
+  --color-space-1: #060C1A;
+  --color-space-2: #0A1628;
+  --color-space-3: #0F1E38;
+  --color-nebula: #1E3A5F;
+  --color-star-white: #F0F4FF;
+  --color-star-dim: #8BA3C7;
+  --color-star-muted: #4A6080;
+  --color-cosmic-blue: #3B82F6;
+  --color-cosmic-cyan: #06B6D4;
+}
+
+/* Base resets & styles */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--color-deep-space);
+  color: var(--color-star-white);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: #ffffff;
+}
+
+/* Hide scrollbar for standard styling but make it look super premium on chrome/safari */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-deep-space);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-space-3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cosmic-blue);
+}
+
+/* Custom styles for animations & layout */
+@keyframes scrollPulse {
+  0% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(0.3); opacity: 0; transform-origin: top; }
+}
+
+.scroll-line-anim {
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes rotate-clockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotate-counter {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.animate-rotate-cw {
+  animation: rotate-clockwise 20s linear infinite;
+}
+
+.animate-rotate-ccw {
+  animation: rotate-counter 15s linear infinite;
+}
+
+.animate-rotate-fast {
+  animation: rotate-clockwise 10s linear infinite;
+}
+
+/* Backdrop Blur Glass effect */
+.glassmorphism {
+  background: rgba(15, 30, 56, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(59, 130, 246, 0.12);
+}
+
+.glassmorphism-hover:hover {
+  background: rgba(15, 30, 56, 0.6);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.15);
+}
+
+/* Custom marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Hide core cursor if customized */
+@media (pointer: fine) {
+  .custom-cursor-active {
+    cursor: none !important;
+  }
+  .custom-cursor-active a,
+  .custom-cursor-active button,
+  .custom-cursor-active input,
+  .custom-cursor-active textarea,
+  .custom-cursor-active select,
+  .custom-cursor-active [role="button"] {
+    cursor: none !important;
+  }
+}
