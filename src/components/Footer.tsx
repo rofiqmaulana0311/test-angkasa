@@ -15,7 +15,7 @@ export default function Footer() {
     behance: 'https://www.behance.net/angkasa___studio',
     dribbble: 'https://dribbble.com/Angkasa_Studio',
     instagram: 'https://instagram.com/angkasa___studio',
-    whatsapp: 'https://wa.me/6287820299410', // Format WhatsApp internasional tanpa tanda '+' atau spasi (misal 62 untuk Indonesia)
+    whatsapp: 'https://wa.me/6287780597311', // Format WhatsApp internasional tanpa tanda '+' atau spasi (misal 62 untuk Indonesia)
   };
 
   const handleSubscribe = (e: React.FormEvent) => {

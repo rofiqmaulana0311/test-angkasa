@@ -119,7 +119,7 @@ export default function Contact() {
     setLoading(true);
 
     const message = getWhatsAppMsg();
-    const waUrl = `https://wa.me/6287820299410?text=${encodeURIComponent(message)}`;
+    const waUrl = `https://wa.me/6287780597311?text=${encodeURIComponent(message)}`;
     const emailSubject = lang === 'id' 
       ? `Rencana Peluncuran Desain - ${formData.name}`
       : `Design Launch Plan - ${formData.name}`;
@@ -189,7 +189,7 @@ export default function Contact() {
               
               <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 mb-4">
                 <a
-                  href={`https://wa.me/6287820299410?text=${encodeURIComponent(getWhatsAppMsg())}`}
+                  href={`https://wa.me/6287780597311?text=${encodeURIComponent(getWhatsAppMsg())}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-green-500 hover:bg-green-600 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-green-500/20 transition-all duration-200 cursor-none"
