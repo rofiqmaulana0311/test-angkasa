@@ -237,6 +237,8 @@ const translations: Record<Language, Record<string, any>> = {
       formLabels: {
         name: 'Full Legal Name *',
         whatsapp: 'Active WhatsApp Handle *',
+        email: 'Email Address (Optional)',
+        package: 'Selected Pricing Package',
         needs: 'Intended Visual Asset Needs',
         budget: 'Budget Resource Allocation',
         brief: 'Brief Project Outline',
@@ -244,7 +246,14 @@ const translations: Record<Language, Record<string, any>> = {
       formPlaceholders: {
         name: 'e.g. Rizky Dharma',
         whatsapp: 'e.g. +6281234567890',
+        email: 'e.g. yourname@domain.com',
         brief: 'Define briefly your venture metrics, competitors, targets or visual aesthetic preferences...',
+      },
+      formPackages: {
+        'custom': 'Custom / No Plan (Proyek Kustom)',
+        'logo-sys': 'Startup Logo Package (Rp 500K / $35 USD)',
+        'brand-identity': 'Full Brand Identity Package (Rp 2.5M / $175 USD)',
+        'full-branding': 'Complete Brand & Motion Suite (Rp 5M / $350 USD)',
       },
       formServices: {
         'logo-design': 'Logo Design & Wordmarks (Logo Designer)',
@@ -515,6 +524,8 @@ const translations: Record<Language, Record<string, any>> = {
       formLabels: {
         name: 'Nama Lengkap *',
         whatsapp: 'Nomor WhatsApp *',
+        email: 'Alamat Email (Opsional)',
+        package: 'Pilihan Paket Utama',
         needs: 'Kebutuhan Desain / Servis',
         budget: 'Rencana Budget Alokasi',
         brief: 'Deskripsi Singkat Projek',
@@ -522,7 +533,14 @@ const translations: Record<Language, Record<string, any>> = {
       formPlaceholders: {
         name: 'e.g. Rizky Dharma',
         whatsapp: 'e.g. 081234567890',
+        email: 'e.g. nama@domain.com',
         brief: 'Ceritakan singkat mengenai produk Anda, audiens kompetitor, sasaran, atau aspirasi brand...',
+      },
+      formPackages: {
+        'custom': 'Kustom / Tanpa Paket (Custom Project)',
+        'logo-sys': 'Paket Logo Startup (Rp 500 Ribu)',
+        'brand-identity': 'Identitas Brand Lengkap (Rp 2.5 Juta)',
+        'full-branding': 'Paket Identitas & Animasi Lengkap (Rp 5 Juta)',
       },
       formServices: {
         'logo-design': 'Logo Design & Wordmarks (Logo Designer)',

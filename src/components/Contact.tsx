@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Send, CheckCircle2, RefreshCw } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Send, CheckCircle2, RefreshCw, Check } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useLanguage } from '../LanguageContext';
 
@@ -7,14 +7,110 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     whatsapp: '',
-    service: 'logo-design',
-    budget: 'mid-tier',
+    email: '',
+    package: 'custom',
     details: '',
+    selectedAddons: [] as string[],
   });
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const { lang, t } = useLanguage();
+
+  const addonsList = [
+    { id: 'logo-motion', nameId: 'Animasi Logo & Bumper Gerak', nameEn: 'Logo Animation & Motion Bumper' },
+    { id: 'social-media', nameId: 'Kit Media Sosial (+5 Templat)', nameEn: 'Social Media Kit (+5 Templates)' },
+    { id: 'stationery', nameId: 'Desain Cetak Berkas Kantor (Stationery)', nameEn: 'Office Stationery & Print Set' },
+    { id: 'packaging', nameId: 'Desain Kemasan Siap Cetak (Packaging)', nameEn: 'Print-Ready Packaging Design' },
+  ];
+
+  const getAddonName = (id: string) => {
+    const addon = addonsList.find(a => a.id === id);
+    if (!addon) return id;
+    return lang === 'id' ? addon.nameId : addon.nameEn;
+  };
+
+  const isAddOnIncludedInPackage = (addonId: string, packageId: string): boolean => {
+    if (packageId === 'full-branding') {
+      return ['logo-motion', 'stationery', 'packaging'].includes(addonId);
+    }
+    return false;
+  };
+
+  const handleAddonToggleInForm = (id: string) => {
+    if (isAddOnIncludedInPackage(id, formData.package)) {
+      return; // Already bundled, do not allow toggling off
+    }
+    setFormData(prev => {
+      const isSelected = prev.selectedAddons.includes(id);
+      const updated = isSelected 
+        ? prev.selectedAddons.filter(item => item !== id)
+        : [...prev.selectedAddons, id];
+      return { ...prev, selectedAddons: updated };
+    });
+  };
+
+  const getWhatsAppMsg = () => {
+    const packageName = formData.package === 'logo-sys'
+      ? (lang === 'id' ? 'Paket Logo Startup' : 'Startup Logo Package')
+      : formData.package === 'brand-identity'
+      ? (lang === 'id' ? 'Identitas Brand Lengkap' : 'Full Brand Identity Package')
+      : formData.package === 'full-branding'
+      ? (lang === 'id' ? 'Paket Identitas & Animasi Lengkap' : 'Complete Brand & Motion Suite')
+      : (lang === 'id' ? 'Kustom / Tanpa Paket' : 'Custom Project');
+
+    const activeAddons = addonsList.filter(add => 
+      isAddOnIncludedInPackage(add.id, formData.package) || formData.selectedAddons.includes(add.id)
+    );
+
+    const addonsText = activeAddons.length > 0
+      ? activeAddons.map(add => getAddonName(add.id) + (isAddOnIncludedInPackage(add.id, formData.package) ? ` (${lang === 'id' ? 'Termasuk Paket' : 'Bundled'})` : '')).join(', ')
+      : (lang === 'id' ? 'Tidak ada' : 'None');
+
+    if (lang === 'id') {
+      return `Halo Angkasa Studio, saya *${formData.name}* ingin berdiskusi mengenai projek desain.
+
+*Detail Rencana:*
+- *Pilihan Paket Utama:* ${packageName}
+- *Tambahan Paket (Add-ons):* ${addonsText}
+- *Email:* ${formData.email || '-'}
+- *Deskripsi Singkat:* ${formData.details || '-'}`;
+    } else {
+      return `Hello Angkasa Studio, I am *${formData.name}* and I would like to discuss a design project.
+
+*Project Details:*
+- *Main Package Selection:* ${packageName}
+- *Additional Packages (Add-ons):* ${addonsText}
+- *Email:* ${formData.email || '-'}
+- *Brief Outline:* ${formData.details || '-'}`;
+    }
+  };
+
+  // Listen to select pricing plan event and update state
+  useEffect(() => {
+    const handlePlanSelect = (e: Event) => {
+      const customEvent = e as CustomEvent<{ planId: string }>;
+      const planId = customEvent.detail?.planId;
+      if (!planId) return;
+
+      // Automatically populate included addons
+      let includedAddons: string[] = [];
+      if (planId === 'full-branding') {
+        includedAddons = ['logo-motion', 'stationery', 'packaging'];
+      }
+
+      setFormData((prev) => ({
+        ...prev,
+        package: planId,
+        selectedAddons: includedAddons,
+      }));
+    };
+
+    window.addEventListener('select-pricing-plan', handlePlanSelect);
+    return () => {
+      window.removeEventListener('select-pricing-plan', handlePlanSelect);
+    };
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,9 +128,10 @@ export default function Contact() {
     setFormData({
       name: '',
       whatsapp: '',
-      service: 'logo-design',
-      budget: 'mid-tier',
+      email: '',
+      package: 'custom',
       details: '',
+      selectedAddons: [],
     });
     setSubmitted(false);
   };
@@ -68,7 +165,7 @@ export default function Contact() {
               
               <div className="flex flex-col sm:flex-row gap-4 mb-4">
                 <a
-                  href={`https://wa.me/6281234567890?text=Halo%20Angkasa%20Studio%2C%20saya%20${encodeURIComponent(formData.name)}%20ingin%20berdiskusi%20mengenai%20projek%20${encodeURIComponent(formData.service)}.`}
+                  href={`https://wa.me/6287820299410?text=${encodeURIComponent(getWhatsAppMsg())}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-green-500 hover:bg-green-600 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-green-500/20 transition-all duration-200 cursor-none"
@@ -132,41 +229,101 @@ export default function Contact() {
                   </div>
                 </div>
 
-                {/* Option configurations row */}
+                {/* Email and Package Row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {/* Required Service selection list */}
+                  {/* Email field (Optional) */}
                   <div>
                     <label className="block text-xs uppercase tracking-widest text-star-muted font-bold mb-2 font-mono select-none">
-                      {t('contact', 'formLabels')['needs']}
+                      {t('contact', 'formLabels')['email']}
                     </label>
-                    <select
-                      value={formData.service}
-                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full bg-space-1 border border-white/5 rounded-xl px-4 py-3.5 text-sm text-white outline-none focus:border-cosmic-blue transition-colors appearance-none cursor-none"
-                    >
-                      <option value="logo-design">{t('contact', 'formServices')['logo-design']}</option>
-                      <option value="visual-identity">{t('contact', 'formServices')['visual-identity']}</option>
-                      <option value="brand-collateral">{t('contact', 'formServices')['brand-collateral']}</option>
-                      <option value="logo-motion">{t('contact', 'formServices')['logo-motion']}</option>
-                      <option value="custom">{t('contact', 'formServices')['custom']}</option>
-                    </select>
+                    <input
+                      type="email"
+                      placeholder={t('contact', 'formPlaceholders')['email']}
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full bg-space-1 border border-white/5 rounded-xl px-4 py-3.5 text-sm text-white outline-none focus:border-cosmic-blue transition-colors placeholder-star-muted cursor-none"
+                    />
                   </div>
-
-                  {/* Pricing Tier selection list */}
+                  
+                  {/* Package Selector */}
                   <div>
                     <label className="block text-xs uppercase tracking-widest text-star-muted font-bold mb-2 font-mono select-none">
-                      {t('contact', 'formLabels')['budget']}
+                      {t('contact', 'formLabels')['package']}
                     </label>
-                    <select
-                      value={formData.budget}
-                      onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      className="w-full bg-space-1 border border-white/5 rounded-xl px-4 py-3.5 text-sm text-white outline-none focus:border-cosmic-blue transition-colors appearance-none cursor-none"
-                    >
-                      <option value="starter">{t('contact', 'formBudgets')['starter']}</option>
-                      <option value="mid-tier">{t('contact', 'formBudgets')['mid-tier']}</option>
-                      <option value="scale">{t('contact', 'formBudgets')['scale']}</option>
-                      <option value="enterprise">{t('contact', 'formBudgets')['enterprise']}</option>
-                    </select>
+                    <div className="relative">
+                      <select
+                        value={formData.package}
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          let includedAddons: string[] = [];
+                          if (val === 'full-branding') {
+                            includedAddons = ['logo-motion', 'stationery', 'packaging'];
+                          }
+                          setFormData({
+                            ...formData,
+                            package: val,
+                            selectedAddons: includedAddons
+                          });
+                        }}
+                        className="w-full bg-space-1 border border-white/5 rounded-xl px-4 py-3.5 text-sm text-white outline-none focus:border-cosmic-blue transition-colors appearance-none cursor-none"
+                      >
+                        <option value="custom">{(t('contact', 'formPackages') as any)['custom']}</option>
+                        <option value="logo-sys">{(t('contact', 'formPackages') as any)['logo-sys']}</option>
+                        <option value="brand-identity">{(t('contact', 'formPackages') as any)['brand-identity']}</option>
+                        <option value="full-branding">{(t('contact', 'formPackages') as any)['full-branding']}</option>
+                      </select>
+                      <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-star-muted text-xs">▼</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Additional Packages Add-ons row */}
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-star-muted font-bold mb-3 font-mono select-none block text-left">
+                    {lang === 'id' ? 'Tambahan Paket (Add-ons)' : 'Additional Add-on Packages'}
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {addonsList.map((add) => {
+                      const isIncluded = isAddOnIncludedInPackage(add.id, formData.package);
+                      const selected = isIncluded || formData.selectedAddons.includes(add.id);
+                      return (
+                        <button
+                          key={add.id}
+                          type="button"
+                          onClick={() => handleAddonToggleInForm(add.id)}
+                          className={`flex items-center justify-between p-4 rounded-xl border text-left transition-all duration-300 cursor-none ${
+                            selected
+                              ? 'border-cosmic-blue bg-cosmic-blue/10'
+                              : 'border-white/5 bg-space-1 hover:border-white/15'
+                          } ${isIncluded ? 'opacity-90' : ''}`}
+                        >
+                          <div>
+                            <div className={`text-xs font-semibold ${selected ? 'text-cosmic-blue font-bold' : 'text-white'}`}>
+                              {getAddonName(add.id)}
+                            </div>
+                            <div className="text-[10px] text-star-muted font-mono mt-0.5">
+                              {isIncluded ? (
+                                <span className="text-cosmic-cyan font-bold font-sans">
+                                  {lang === 'id' ? '✓ Sudah Termasuk' : '✓ Already Included'}
+                                </span>
+                              ) : (
+                                add.id === 'logo-motion' ? (lang === 'id' ? '+Rp 450 Ribu' : '+$30 USD') :
+                                add.id === 'social-media' ? (lang === 'id' ? '+Rp 300 Ribu' : '+$20 USD') :
+                                add.id === 'stationery' ? (lang === 'id' ? '+Rp 250 Ribu' : '+$18 USD') :
+                                (lang === 'id' ? '+Rp 850 Ribu' : '+$58 USD')
+                              )}
+                            </div>
+                          </div>
+                          <div
+                            className={`w-4.5 h-4.5 rounded-full border flex items-center justify-center flex-shrink-0 ml-3 transition-colors ${
+                              selected ? 'bg-cosmic-blue border-cosmic-blue text-white shadow-sm' : 'border-white/10'
+                            }`}
+                          >
+                            {selected && <Check className="w-3 h-3 text-white" />}
+                          </div>
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 

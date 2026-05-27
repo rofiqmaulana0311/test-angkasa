@@ -190,96 +190,27 @@ export default function Pricing() {
                 </ul>
 
                 {/* CTA Select */}
-                <a
-                  href="#cta"
+                <button
+                  type="button"
+                  onClick={() => {
+                    const event = new CustomEvent('select-pricing-plan', { detail: { planId: plan.id } });
+                    window.dispatchEvent(event);
+                    const contactSection = document.getElementById('cta');
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
                   className={`mt-auto w-full text-center py-4 rounded-full font-semibold text-xs uppercase tracking-wider transition-all duration-300 cursor-none ${
                     plan.isPopular
-                      ? 'bg-cosmic-blue hover:bg-blue-600 text-white shadow-lg shadow-cosmic-blue/20'
+                      ? 'bg-cosmic-blue hover:bg-blue-600 text-white shadow-lg shadow-cosmic-blue/20 animate-pulse'
                       : 'border border-white/10 hover:border-cosmic-blue hover:bg-cosmic-blue/5 text-white'
                   }`}
                 >
                   {t('pricing', 'selectPlan')}
-                </a>
+                </button>
               </div>
             );
           })}
-        </div>
-
-        {/* Dynamic Interactive Estimate Builder widget */}
-        <div className="p-8 md:p-10 rounded-2xl border border-white/5 bg-space-2/30 backdrop-blur-2xl relative overflow-hidden">
-          {/* Decorative Corner vector */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%) pointer-events-none" />
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Left selector */}
-            <div className="lg:col-span-8">
-              <h4 className="font-display text-lg font-bold text-white mb-2 flex items-center gap-2">
-                {t('pricing', 'configurator')}
-                <span className="px-2.5 py-0.5 rounded-md bg-cyan-500/10 text-cosmic-cyan text-[10px] font-mono tracking-widest font-normal uppercase animate-pulse">
-                  {t('pricing', 'addonLabel')}
-                </span>
-              </h4>
-              <p className="text-star-dim font-light text-xs sm:text-sm leading-relaxed mb-6 max-w-2xl">
-                {t('pricing', 'configDesc')}
-              </p>
-
-              {/* Addones grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {addons.map((add) => {
-                  const selected = selectedAddons.includes(add.id);
-                  const priceText = formatPrice(currency === 'IDR' ? add.priceIdr : add.priceUsd);
-                  return (
-                    <button
-                      key={add.id}
-                      onClick={() => handleAddonToggle(add.id)}
-                      className={`flex items-center justify-between p-4 rounded-xl border text-left transition-all duration-300 cursor-none ${
-                        selected
-                          ? 'border-cosmic-blue bg-cosmic-blue/10 animate-pulse'
-                          : 'border-white/5 bg-space-1/30 hover:border-white/15'
-                      }`}
-                    >
-                      <div>
-                        <div className={`text-xs font-semibold ${selected ? 'text-cosmic-blue font-bold' : 'text-white'}`}>
-                          {add.name}
-                        </div>
-                        <div className="text-[10px] text-star-muted font-mono mt-0.5">
-                          {priceText}
-                        </div>
-                      </div>
-                      <div
-                        className={`w-4.5 h-4.5 rounded-full border flex items-center justify-center flex-shrink-0 ml-3 transition-colors ${
-                          selected ? 'bg-cosmic-blue border-cosmic-blue text-white shadow-sm shadow-cosmic-blue/30' : 'border-white/10'
-                        }`}
-                      >
-                        {selected && <Check className="w-3 h-3" />}
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Right Estimator total presentation */}
-            <div className="lg:col-span-4 p-6 rounded-xl bg-space-1 border border-white/5 text-center flex flex-col items-center justify-center min-h-[180px]">
-              <span className="text-[10px] uppercase font-mono tracking-widest text-star-muted block mb-2">
-                {t('pricing', 'estimatedCostLabel')}
-              </span>
-              <div className="font-display text-2xl sm:text-3xl font-black text-cosmic-cyan tracking-tight mb-2">
-                {formatPrice(getAddonCost())}
-              </div>
-              <span className="text-[10px] text-star-muted font-light leading-relaxed mb-4">
-                {selectedAddons.length === 0
-                  ? t('pricing', 'estimatedNone')
-                  : t('pricing', 'estimatedCount').replace('{count}', String(selectedAddons.length))}
-              </span>
-              <a
-                href="#cta"
-                className="inline-flex items-center justify-center w-full py-3 rounded-full bg-cosmic-blue hover:bg-blue-600 text-white font-semibold text-xs uppercase tracking-wider transition-all shadow-md shadow-cosmic-blue/10 active:scale-95 cursor-none"
-              >
-                {t('pricing', 'customProposal')}
-              </a>
-            </div>
-          </div>
         </div>
         
       </div>

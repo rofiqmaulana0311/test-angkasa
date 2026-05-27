@@ -78,37 +78,37 @@ export default function Hero() {
         <Sparkles className="w-6 h-6" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
+      <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
         {/* Decorative Badge - Selected Focus Element */}
-        <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-cosmic-blue/30 bg-gradient-to-r from-space-2/80 to-space-3/80 shadow-[0_0_15px_rgba(59,130,246,0.1)] backdrop-blur-md text-xs font-semibold uppercase tracking-widest text-cosmic-blue hover:text-white hover:border-cosmic-cyan/50 hover:shadow-[0_0_20px_rgba(6,182,212,0.2)] transition-all duration-300 scale-95 md:scale-100 select-none cursor-default">
+        <div className="inline-flex items-center gap-2 mb-5 px-3.5 py-1.5 rounded-full border border-cosmic-blue/30 bg-gradient-to-r from-space-2/80 to-space-3/80 shadow-[0_0_15px_rgba(59,130,246,0.1)] backdrop-blur-md text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-cosmic-blue hover:text-white hover:border-cosmic-cyan/50 hover:shadow-[0_0_20px_rgba(6,182,212,0.2)] transition-all duration-300 scale-95 md:scale-100 select-none cursor-default">
           <span className="w-1.5 h-1.5 bg-cosmic-blue rounded-full animate-pulse shadow-[0_0_8px_#3B82F6]" />
           {t('hero', 'badge')}
         </div>
 
         {/* Display Heading */}
-        <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-[1.1] mb-6 max-w-5xl text-white select-none text-center">
+        <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.15] mb-5 max-w-3xl text-white select-none text-center">
           {t('hero', 'titlePart1')} <br />
           {t('hero', 'titlePart2')} <br />
           <span className="font-extrabold bg-gradient-to-r from-blue-400 via-cosmic-blue to-cosmic-cyan bg-clip-text text-transparent w-full inline-block sm:inline">{t('hero', 'gradient')}</span>
         </h1>
 
         {/* Subtext */}
-        <p className="text-sm sm:text-base md:text-lg text-star-dim font-light max-w-2xl leading-relaxed mb-10 select-none">
+        <p className="text-xs sm:text-sm md:text-base text-star-dim font-light max-w-xl leading-relaxed mb-8 select-none">
           {t('hero', 'subtext')}
         </p>
 
         {/* Button Actions */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto">
           <a
             href="#portfolio"
-            className="group inline-flex items-center gap-2 w-full sm:w-auto justify-center px-8 py-4 rounded-full bg-cosmic-blue hover:bg-blue-600 transition-all duration-300 transform hover:-translate-y-0.5 text-sm font-semibold tracking-wide text-white shadow-lg shadow-cosmic-blue/20 hover:shadow-cosmic-blue/40"
+            className="group inline-flex items-center gap-2 w-full sm:w-auto justify-center px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-cosmic-blue hover:bg-blue-600 transition-all duration-300 transform hover:-translate-y-0.5 text-xs sm:text-sm font-semibold tracking-wide text-white shadow-lg shadow-cosmic-blue/20 hover:shadow-cosmic-blue/40"
           >
             {t('hero', 'viewWork')}
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
           <a
             href="#services"
-            className="group inline-flex items-center gap-2 w-full sm:w-auto justify-center px-8 py-4 rounded-full bg-transparent hover:text-white transition-all text-sm font-medium tracking-wide text-star-dim"
+            className="group inline-flex items-center gap-2 w-full sm:w-auto justify-center px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-transparent hover:text-white transition-all text-xs sm:text-sm font-medium tracking-wide text-star-dim"
           >
             {t('hero', 'learnServices')}
             <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -116,9 +116,9 @@ export default function Hero() {
         </div>
 
         {/* Dynamic Static Counters */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 w-full max-w-2xl border-t border-white/5 mt-12 md:mt-16 pt-8 px-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 w-full max-w-2xl border-t border-white/5 mt-10 md:mt-12 pt-6 px-4">
           <div className="text-center">
-            <span className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-white block mb-1">
+            <span className="font-display text-xl sm:text-2xl md:text-3xl font-extrabold text-white block mb-1">
               {stats.launched}+
             </span>
             <span className="text-[9px] sm:text-[10px] text-star-muted uppercase tracking-widest font-mono">
@@ -126,7 +126,7 @@ export default function Hero() {
             </span>
           </div>
           <div className="text-center">
-            <span className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-white block mb-1">
+            <span className="font-display text-xl sm:text-2xl md:text-3xl font-extrabold text-white block mb-1">
               {stats.years} {t('hero', 'years')}
             </span>
             <span className="text-[9px] sm:text-[10px] text-star-muted uppercase tracking-widest font-mono">
@@ -134,7 +134,7 @@ export default function Hero() {
             </span>
           </div>
           <div className="text-center">
-            <span className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-white block mb-1">
+            <span className="font-display text-xl sm:text-2xl md:text-3xl font-extrabold text-white block mb-1">
               {stats.score}
             </span>
             <span className="text-[9px] sm:text-[10px] text-star-muted uppercase tracking-widest font-mono">
@@ -142,7 +142,7 @@ export default function Hero() {
             </span>
           </div>
           <div className="text-center">
-            <span className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-white block mb-1">
+            <span className="font-display text-xl sm:text-2xl md:text-3xl font-extrabold text-white block mb-1">
               {stats.rate}
             </span>
             <span className="text-[9px] sm:text-[10px] text-star-muted uppercase tracking-widest font-mono">
