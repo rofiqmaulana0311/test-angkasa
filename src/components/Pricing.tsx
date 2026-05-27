@@ -92,15 +92,15 @@ export default function Pricing() {
       <div className="max-w-7xl mx-auto">
         
         {/* Header content */}
-        <div className="max-w-xl mb-16">
+        <div className="max-w-4xl mb-16">
           <div className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-widest text-cosmic-blue">
             <span className="w-6 h-0.5 bg-cosmic-blue block" />
             {t('pricing', 'badge')}
           </div>
-          <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
+          <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight">
             {t('pricing', 'title')}
           </h2>
-          <p className="text-star-dim font-light text-sm sm:text-base">
+          <p className="text-star-dim font-light text-sm sm:text-base leading-relaxed">
             {t('pricing', 'desc')}
           </p>
         </div>
@@ -135,7 +135,7 @@ export default function Pricing() {
                   </span>
                 </div>
 
-                <h3 className="font-display text-xl font-bold text-white mb-2">
+                <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white mb-2.5 tracking-tight">
                   {plan.name}
                 </h3>
                 
@@ -145,10 +145,10 @@ export default function Pricing() {
 
                 {/* Styled Price */}
                 <div className="mb-8 border-b border-white/5 pb-6">
-                  <span className="font-display text-3xl sm:text-4xl font-black text-white tracking-tight">
+                  <span className="font-display text-4xl sm:text-5xl font-black text-white tracking-tight">
                     {formatPrice(basePrice)}
                   </span>
-                  <span className="text-[11px] text-star-muted block mt-1 font-mono">
+                  <span className="text-xs text-star-muted block mt-1.5 font-mono">
                     {t('pricing', 'fixed')}
                   </span>
                 </div>
