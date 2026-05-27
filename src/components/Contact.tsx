@@ -298,10 +298,10 @@ export default function Contact() {
                         }}
                         className="w-full bg-space-1 border border-white/5 rounded-xl px-4 py-3.5 text-sm text-white outline-none focus:border-cosmic-blue transition-colors appearance-none cursor-none"
                       >
-                        <option value="custom">{(t('contact', 'formPackages') as any)['custom']}</option>
                         <option value="logo-sys">{(t('contact', 'formPackages') as any)['logo-sys']}</option>
                         <option value="brand-identity">{(t('contact', 'formPackages') as any)['brand-identity']}</option>
                         <option value="full-branding">{(t('contact', 'formPackages') as any)['full-branding']}</option>
+                        <option value="custom">{(t('contact', 'formPackages') as any)['custom']}</option>
                       </select>
                       <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-star-muted text-xs">▼</div>
                     </div>
