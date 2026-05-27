@@ -233,6 +233,7 @@ const translations: Record<Language, Record<string, any>> = {
       successTitle: "You're in Orbit! ✓",
       successText: "We received your proposal, {name}. Your system parameters have logged successfully. Angkasa Studio officers will match with you on WhatsApp at {whatsapp} in 24 hours.",
       contactWa: 'Instant WhatsApp Communication',
+      contactEmail: 'Send via Email',
       newProposal: 'Submit Dual Proposal',
       formLabels: {
         name: 'Full Legal Name *',
@@ -520,6 +521,7 @@ const translations: Record<Language, Record<string, any>> = {
       successTitle: 'Sukses Mengorbit! ✓',
       successText: 'Terima kasih, {name}. Proposal proyek Anda berhasil didaftarkan di sistem kami. Tim Angkasa Studio akan menghubungi Anda dalam 24 jam ke WhatsApp {whatsapp}.',
       contactWa: 'Hubungi Instan via WhatsApp',
+      contactEmail: 'Kirim via Email',
       newProposal: 'Kirim Pembahasan Baru',
       formLabels: {
         name: 'Nama Lengkap *',

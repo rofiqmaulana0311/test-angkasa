@@ -117,10 +117,34 @@ export default function Contact() {
     if (!formData.name || !formData.whatsapp) return;
 
     setLoading(true);
+
+    const message = getWhatsAppMsg();
+    const waUrl = `https://wa.me/6287820299410?text=${encodeURIComponent(message)}`;
+    const emailSubject = lang === 'id' 
+      ? `Rencana Peluncuran Desain - ${formData.name}`
+      : `Design Launch Plan - ${formData.name}`;
+    const mailUrl = `mailto:rofiqm616@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(message)}`;
+
     // Simulate high-fidelity api response
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
+
+      // Automatically try to open WhatsApp in a new tab
+      try {
+        window.open(waUrl, '_blank', 'noopener,noreferrer');
+      } catch (err) {
+        console.error("WhatsApp redirect blocked by popup blocker:", err);
+      }
+
+      // Automatically trigger mail client on current tab
+      setTimeout(() => {
+        try {
+          window.location.href = mailUrl;
+        } catch (err) {
+          console.error("Mailto launch failed:", err);
+        }
+      }, 400);
     }, 1200);
   };
 
@@ -163,19 +187,26 @@ export default function Contact() {
                   .replace('{whatsapp}', formData.whatsapp)}
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 mb-4">
+              <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 mb-4">
                 <a
                   href={`https://wa.me/6287820299410?text=${encodeURIComponent(getWhatsAppMsg())}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-green-500 hover:bg-green-600 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-green-500/20 transition-all duration-200 cursor-none"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-green-500 hover:bg-green-600 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-green-500/20 transition-all duration-200 cursor-none"
                 >
                   {t('contact', 'contactWa')}
+                </a>
+
+                <a
+                  href={`mailto:rofiqm616@gmail.com?subject=${encodeURIComponent(lang === 'id' ? `Rencana Peluncuran Desain - ${formData.name}` : `Design Launch Plan - ${formData.name}`)}&body=${encodeURIComponent(getWhatsAppMsg())}`}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-cosmic-blue hover:bg-blue-600 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-cosmic-blue/20 transition-all duration-200 cursor-none"
+                >
+                  {t('contact', 'contactEmail')}
                 </a>
                 
                 <button
                   onClick={handleReset}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/10 hover:border-cosmic-blue/30 text-xs font-semibold uppercase tracking-wider text-star-dim hover:text-white transition-colors duration-200 cursor-none"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full border border-white/10 hover:border-cosmic-blue/30 text-xs font-semibold uppercase tracking-wider text-star-dim hover:text-white transition-colors duration-200 cursor-none"
                 >
                   <RefreshCw className="w-3.5 h-3.5" />
                   {t('contact', 'newProposal')}
