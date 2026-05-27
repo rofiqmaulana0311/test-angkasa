@@ -11,8 +11,8 @@ interface PricingAddon {
 }
 
 export default function Pricing() {
-  const [currency, setCurrency] = useState<'IDR' | 'USD'>('IDR');
   const { lang, t } = useLanguage();
+  const currency = lang === 'id' ? 'IDR' : 'USD';
   
   // Dynamic addon selection list
   const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
@@ -91,44 +91,18 @@ export default function Pricing() {
     >
       <div className="max-w-7xl mx-auto">
         
-        {/* Header with Currency Controls */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
-          <div className="max-w-xl">
-            <div className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-widest text-cosmic-blue">
-              <span className="w-6 h-0.5 bg-cosmic-blue block" />
-              {t('pricing', 'badge')}
-            </div>
-            <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
-              {t('pricing', 'title')}
-            </h2>
-            <p className="text-star-dim font-light text-sm sm:text-base">
-              {t('pricing', 'desc')}
-            </p>
+        {/* Header content */}
+        <div className="max-w-xl mb-16">
+          <div className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-widest text-cosmic-blue">
+            <span className="w-6 h-0.5 bg-cosmic-blue block" />
+            {t('pricing', 'badge')}
           </div>
-
-          {/* Currency Toggle Switch */}
-          <div className="flex items-center gap-2 bg-space-2/60 border border-white/5 p-1 rounded-full text-xs font-mono select-none">
-            <button
-              onClick={() => setCurrency('IDR')}
-              className={`px-4 py-2 rounded-full font-bold transition-all cursor-none ${
-                currency === 'IDR'
-                  ? 'bg-cosmic-blue text-white shadow-md'
-                  : 'text-star-dim hover:text-white'
-              }`}
-            >
-              Rupiah (IDR)
-            </button>
-            <button
-              onClick={() => setCurrency('USD')}
-              className={`px-4 py-2 rounded-full font-bold transition-all cursor-none ${
-                currency === 'USD'
-                  ? 'bg-cosmic-blue text-white shadow-md'
-                  : 'text-star-dim hover:text-white'
-              }`}
-            >
-              USD ($)
-            </button>
-          </div>
+          <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
+            {t('pricing', 'title')}
+          </h2>
+          <p className="text-star-dim font-light text-sm sm:text-base">
+            {t('pricing', 'desc')}
+          </p>
         </div>
 
         {/* Pricing Grid */}
