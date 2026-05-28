@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight, Sparkles, Globe } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
+import Logo from './Logo';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,29 +36,13 @@ export default function Navbar() {
             : 'bg-transparent'
         }`}
       >
-        {/* Brand Logo - Angkasa Logo Image + typography */}
-        <a href="#home" className="flex items-center gap-3 group">
-          <div className="relative w-9 h-9 flex items-center justify-center bg-cosmic-blue/10 border border-cosmic-blue/30 rounded-lg overflow-hidden transition-all duration-300 group-hover:border-cosmic-blue/70">
-            <div className="absolute inset-0 bg-gradient-to-tr from-cosmic-blue/20 to-cosmic-cyan/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-            <img 
-              src="/images/logo.svg" 
-              alt="Angkasa Logo" 
-              referrerPolicy="no-referrer"
-              className="w-5 h-5 object-contain z-10 text-cosmic-blue"
-              onError={(e) => {
-                // If logo.svg fails to load, fallback to simple styling
-                e.currentTarget.style.display = 'none';
-              }}
-            />
-          </div>
-          <div>
-            <span className="font-display text-lg font-bold tracking-tight text-white group-hover:text-cosmic-blue transition-colors">
-              ANGKASA
-            </span>
-            <span className="text-[10px] block font-mono text-star-dim tracking-widest leading-none">
-              STUDIO
-            </span>
-          </div>
+        {/* Brand Logo - Premium Full SVG Vector Logo (Icon + Personalized Typo) */}
+        <a href="#home" className="flex items-center group py-1 select-none">
+          <Logo 
+            variant="full"
+            className="h-7 sm:h-8 w-auto text-white group-hover:text-cosmic-blue transition-colors duration-300"
+            id="navbar-full-logo-svg"
+          />
         </a>
 
         {/* Desktop Menu */}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Send, Check, Sparkles, Linkedin, Instagram, Dribbble, Palette, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
+import Logo from './Logo';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -44,27 +45,12 @@ export default function Footer() {
           
           {/* Brand details col */}
           <div className="lg:col-span-4 flex flex-col items-start text-left">
-            <a href="#home" className="flex items-center gap-3 mb-6 group">
-              <div className="relative w-8 h-8 flex items-center justify-center bg-cosmic-blue/10 border border-cosmic-blue/30 rounded-lg overflow-hidden transition-all duration-300 group-hover:border-cosmic-blue/70">
-                <img 
-                  src="/images/logo.svg" 
-                  alt="Angkasa Logo" 
-                  referrerPolicy="no-referrer"
-                  className="w-4 h-4 object-contain z-10 text-cosmic-blue"
-                  onError={(e) => {
-                    // Fallback element
-                    e.currentTarget.style.display = 'none';
-                  }}
-                />
-              </div>
-              <div>
-                <span className="font-display text-base font-bold tracking-tight text-white group-hover:text-cosmic-blue transition-colors">
-                  ANGKASA
-                </span>
-                <span className="text-[9px] block font-mono text-star-dim tracking-widest leading-none">
-                  STUDIO
-                </span>
-              </div>
+            <a href="#home" className="flex items-center mb-6 group select-none">
+              <Logo 
+                variant="full"
+                className="h-6 sm:h-7 w-auto text-white group-hover:text-cosmic-blue transition-colors duration-300"
+                id="footer-full-logo-svg"
+              />
             </a>
             
             <p className="text-star-dim font-light text-xs sm:text-sm leading-relaxed mb-6 max-w-sm">
